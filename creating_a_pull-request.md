@@ -10,3 +10,4 @@ The general idea is that once your change passes code review, it's on.
 
 Once you've commited your changes to your GitHub fork, it's time to make the pull-request.
 
+![image](https://cloud.githubusercontent.com/assets/2152766/11125115/0d4ec57c-8960-11e5-8e3a-1fa0419a898e.png)
