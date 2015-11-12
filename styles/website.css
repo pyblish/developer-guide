@@ -1,0 +1,10 @@
+code, pre code {
+    background: #F9F9F9;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    //font-family: "Source Code Pro";
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    padding: 0.2em;
+}
