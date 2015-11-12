@@ -1,4 +1,4 @@
 # Summary
 
-* Front page
+* [Front page](front_page.md)
 
