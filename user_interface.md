@@ -1,11 +1,11 @@
 
-### 4. User Interface
+# 4. User Interface
 
 The current user interface started as a reference implementation with which other user interfaces were to be developed. Since its introduction, the goal of a user interface for publishing has been made more clear and in response a series of improvements and features was added to this implementation.
 
 Due to this origin however, the foundation of its current incarnation is far from strong. Alternatives are most welcome, especially from developers with experience in UI/UX and optionally Qt and Python.
 
-##### 4.1. Why QML?
+### 4.1 Why QML?
 
 TLDR; In order to remain competitive.
 
@@ -19,7 +19,7 @@ All roads point to PySide and Qt 4 being the most lucrative development framewor
 
 Many integration endpoints, such as Autodesk Maya, facilitate integration by providing the developer with an ability to *mix* custom software with the host. For example, one can both augment and append to existing widgets within the host itself.
 
-This has many benefits.
+This has many pros.
 
 - Custom software can get by with zero dependencies, apart from the source code. This makes deployment effortless.
 - Communication between host and custom software is equal compared with what already happening internally.
@@ -37,7 +37,7 @@ However it doesn't come without cons.
 
 For hack-and-slash software, written in the heat of production, the provided integration is indispensable. Enabling the rapid development of tools otherwise not possible. For software meant to last, the future is now. Literally. In that one must consider how to ensure survival an ever-changing environment.
 
-##### 4.2. A primer in inter-process communication
+### 4.2 A primer in inter-process communication
 
 Developing for the user interface of Pyblish requires an understanding of inter-process communication (IPC), so the following is a quick-start for those unfamiliar with it.
 
@@ -45,6 +45,7 @@ Developing for the user interface of Pyblish requires an understanding of inter-
 
 ![image](https://cloud.githubusercontent.com/assets/2152766/11087234/962c0cda-8850-11e5-87d8-db8aacf67df6.png)
 
+The UI generally makes requests to the host, and the host replies with data. 
 Any host interested in providing their user with a user interface to Pyblish must first:
 
 1. Start listening at a given port number
@@ -101,7 +102,7 @@ And here is some recommended reading of particular interest.
 
 > Break over
 
-##### 4.3 Communicating with the UI
+### 4.3 Communicating with the UI
 
 As mentioned above, the UI is already set-up to listen on port `9090` so all we need to do in order to speak with it is connect.
 
@@ -142,7 +143,7 @@ Here are some of the functionality exposed via the proxy.
 - heartbeat(int)
 - find_available_port()
 
-##### 4.4. UI Communicating with the Host
+### 4.4 UI Communicating with the Host
 
 Conversely, the UI creates a proxy much like the above and requests data of its own.
 
