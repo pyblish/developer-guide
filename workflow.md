@@ -18,8 +18,6 @@ It's important to point out that these steps are mere guidelines and that Pyblis
 
 ##### 2.2. Plug-ins
 
-![image](https://cloud.githubusercontent.com/assets/2152766/11087026/a7f32694-884e-11e5-8b21-8e21279d0aa9.png)
-
 The way you express yourself through CVEI is through the use of "plug-ins".
 
 The Pyblish API is based around the notion that you write functionality that Pyblish then runs. The order in which plug-ins run is then something you control. Plug-ins are generally written by the technical director, but are also flexible enough to enable the artist to add functionality on-the-fly by simply registering it with Pyblish at run-time.
