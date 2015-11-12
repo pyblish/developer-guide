@@ -45,25 +45,25 @@ app.exec_()
 The exact repositories to clone depends on which areas you are interested in developing for, but here are the basics.
 
 ```bash
-# Required
+:: Required
 git clone https://github.com/pyblish/pyblish
 
-# For UI development
+:: For UI development
 git clone https://github.com/pyblish/pyblish-qml
 git clone https://github.com/pyblish/pyblish-rpc
 
-# For integration with a new host
+:: For integration with a new host
 git clone https://github.com/pyblish/pyblish-integration
 
-# For integration with an existing host
+:: For integration with an existing host
 git clone https://github.com/pyblish/pyblish-maya
 git clone https://github.com/pyblish/pyblish-nuke
 git clone https://github.com/pyblish/pyblish-houdini
 git clone https://github.com/pyblish/pyblish-hiero
 git clone https://github.com/pyblish/pyblish-modo
 
-# To be ready for anything
-# COPY PASTE ALL OF THE ABOVE
+:: To be ready for anything
+:: COPY PASTE ALL OF THE ABOVE
 ```
 
 Each of these repositories are set-up in the same way; at the root level there is a Python package. So what we need to do is somehow expose this package onto your PYTHONPATH.
