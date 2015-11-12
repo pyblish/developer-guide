@@ -62,3 +62,12 @@ And here is some recommended reading of particular interest.
 - [Service Design Patterns][05]
 
 > Break over
+
+[pyblish-qml]: https://github.com/pyblish/pyblish-qml
+[pyblish-rpc]: https://github.com/pyblish/pyblish-rpc
+
+[01]: http://zguide.zeromq.org/py:all
+[02]: http://shop.oreilly.com/product/9780596805838.do
+[03]: http://www.amazon.co.uk/Enterprise-Application-Architecture-Addison-Wesley-Signature/dp/0321127420/ref=pd_bxgy_14_img_2?ie=UTF8&refRID=1C160CEZ0ZPX56ZMXYH4
+[04]: http://www.amazon.co.uk/Enterprise-Integration-Patterns-Designing-Addison-Wesley/dp/0321200683
+[05]: http://www.amazon.co.uk/Service-Design-Patterns-Fundamental-Addison-Wesley/dp/032154420X/ref=asap_bc?ie=UTF8
