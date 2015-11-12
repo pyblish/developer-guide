@@ -21,7 +21,7 @@ Assuming you already have Git and Python installed on your local machine, let's 
 mkdir pyblishdev
 cd pyblishdev
 git clone https://github.com/pyqt/python-qt5.git
-set PYTHONPATH=%CD%\python-qt;%PYTHONPATH%
+set PYTHONPATH=%CD%\python-qt5;%PYTHONPATH%
 python -c "import util;util.createqtconf()"
 ```
 
