@@ -30,3 +30,5 @@ However it doesn't come without cons.
 - Finally, custom software being limited to past trends and unable to benefit from new developments in the field, impairing your ability to compete.
 
 For hack-and-slash software, written in the heat of production, the provided integration is indispensable. Enabling the rapid development of tools otherwise not possible. For software meant to last, the future is now. Literally. In that one must consider how to ensure survival an ever-changing environment.
+
+[pyblish-qml]: https://github.com/pyblish/pyblish-qml
