@@ -7,7 +7,7 @@ In order to get started developing for Pyblish on the Windows platform, let's se
 You will need:
 
 1. Git
-1. Python (2.7)
+1. Python (2.7 x64)
 1. Pyblish
  
 If you are interested in working with the UI, then you will also need PyQt5.
