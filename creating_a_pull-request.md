@@ -8,3 +8,5 @@ The general idea is that once your change passes code review, it's on.
 
 ### 5.3.1 Getting on
 
+Once you've commited your changes to your GitHub fork, it's time to make the pull-request.
+
