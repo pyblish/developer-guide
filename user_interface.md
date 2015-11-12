@@ -259,3 +259,32 @@ The [logic][] module is used primarily in the interfaces with which a user inter
 During processing, the context may be extended with [Instance][]'s. These may be added at any part of the pipeline, but only subsequent plug-ins will see them, which is why they are typically added as early as possible in what is commonly referred to as "Collection". By the end of processing, a [results][] dictionary is created and stored within the [Context][].
 
 The [results][] dictionary is appended to a list within the [Context][] - accessible as `data["results"]` - and captures information regarding the order in which plug-ins and instances are processed and all messages therein. It is primarily intended for graphical user interfaces to visualise the events that occur during processing, but is open to developers to produce visualisations of their own. For example you may be interested in storing the results in a log somewhere on the cloud for auditing purposes such that one may "go back in time" and inspect what actually went on back then.
+
+
+
+[maya]: https://github.com/pyblish/pyblish-maya
+[houdini]: https://github.com/pyblish/pyblish-houdini
+[nuke]: https://github.com/pyblish/pyblish-nuke
+[hiero]: https://github.com/pyblish/pyblish-hiero
+[magenta]: https://github.com/pyblish/pyblish-magenta
+[napoleon]: https://github.com/pyblish/pyblish-napoleon
+[pyblish-qml]: https://github.com/pyblish/pyblish-qml
+[pyblish-rpc]: https://github.com/pyblish/pyblish-rpc
+
+[Context]: https://github.com/pyblish/pyblish.api/wiki/Context
+[Instance]: https://github.com/pyblish/pyblish.api/wiki/Instance
+[results]: https://github.com/pyblish/pyblish.api/wiki/results
+[logic]: https://github.com/pyblish/pyblish/blob/master/pyblish/logic.py
+[logic.process]: https://github.com/pyblish/pyblish/blob/master/pyblish/logic.py
+[plugin.process]: https://github.com/pyblish/pyblish/blob/master/pyblish/plugin.py
+
+[1]: https://github.com/pyblish
+[2]: https://github.com/pyblish
+[3]: https://github.com/pyblish/pyblish-integration
+[4]: https://github.com/pyblish/pyblish/blob/master/pyblish/__init__.py
+
+[01]: http://zguide.zeromq.org/py:all
+[02]: http://shop.oreilly.com/product/9780596805838.do
+[03]: http://www.amazon.co.uk/Enterprise-Application-Architecture-Addison-Wesley-Signature/dp/0321127420/ref=pd_bxgy_14_img_2?ie=UTF8&refRID=1C160CEZ0ZPX56ZMXYH4
+[04]: http://www.amazon.co.uk/Enterprise-Integration-Patterns-Designing-Addison-Wesley/dp/0321200683
+[05]: http://www.amazon.co.uk/Service-Design-Patterns-Fundamental-Addison-Wesley/dp/032154420X/ref=asap_bc?ie=UTF8
