@@ -1,7 +1,7 @@
 # Summary
 
 * [Overview](overview.md)
-* Workflow
+* [Workflow](workflow.md)
 * [Software Architecture](software_architecture.md)
 * User Interface
 * Writing Code
