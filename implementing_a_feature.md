@@ -199,3 +199,45 @@ OK
 ```
 
 Hurrah!
+
+### 5.2.5 Busywork
+
+The final step is to increment the version of your respective repository and make a note of what has changed in it's CHANGELOG.
+
+The version is located within a `version.py` file at the Python package-level of the repository.
+
+![image](https://cloud.githubusercontent.com/assets/2152766/11124670/14024562-895e-11e5-8bb8-f1fceed34baa.png)
+
+But before incrementing, make sure there isn't already a new version "in the oven". This is best found out on the forums or on chat rooms. For changes made to a version not yet released (i.e. it doesn't yet have a GitHub Release) you *do not* need to increment it.
+
+In other cases, you do and here's how.
+
+- http://semver.org
+
+Pyblish loosely follows the Semantic Versioning system, more information about it can be found on it's deducated website.
+
+- PATCH increments are generally used for most changes that doesn't involve an announcement and tutorials on the new change.
+- MINOR changes are used for large but backwards compatible changes and new features.
+- MAJOR is reserved for large, potentially backwards incompatible changes.
+
+You should in general aim for backwards compatibility, but sometimes a clean slate safe-guards future growth.
+
+Finally, it's time to make a note in the CHANGELOG under the corresponding version. If you incremented, you will need to make a new entry.
+
+The CHANGELOG looks something like this.
+
+```bash
+pyblish Changelog
+=================
+
+This contains all major version changes between pyblish releases.
+
+Version 1.2.2
+-------------
+
+- Added support for instances with multiple families (#231)
+```
+
+It's customary to include a reference to the corresponding issue, here that is [#231][].
+
+[#231]: https://github.com/pyblish/pyblish/issues/231
