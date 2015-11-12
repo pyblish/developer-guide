@@ -202,7 +202,7 @@ Hurrah!
 
 ### 5.2.5 Busywork
 
-The final step is to increment the version of your respective repository and make a note of what has changed in it's CHANGELOG.
+The final step is to increment the version of your respective repository and make a note of what has changed in it's changelog.
 
 The version is located within a `version.py` file at the Python package-level of the repository.
 
@@ -222,7 +222,9 @@ Pyblish loosely follows the Semantic Versioning system, more information about i
 
 You should in general aim for backwards compatibility, but sometimes a clean slate safe-guards future growth.
 
-Finally, it's time to make a note in the CHANGELOG under the corresponding version. If you incremented, you will need to make a new entry.
+Finally, it's time to make a note in the `CHANGES` under the corresponding version. If you incremented, you will need to make a new entry.
+
+![image](https://cloud.githubusercontent.com/assets/2152766/11125256/d89cd03e-8960-11e5-8e8b-4dfaf59e665e.png)
 
 The CHANGELOG looks something like this.
 
@@ -241,3 +243,11 @@ Version 1.2.2
 It's customary to include a reference to the corresponding issue, here that is [#231][].
 
 [#231]: https://github.com/pyblish/pyblish/issues/231
+
+#### 5.2.6 Committing
+
+When making commits, here are a few guidelines for you to think about.
+
+- Keep commits focused. Don't touch code not relevant to 1 specific problem at a time.
+- Keep commits few. One meaningful commit is better than three haphazard ones.
+- Describe your commits. You should be able to browse a listing of commits and understand what is changing without diving into the code.
