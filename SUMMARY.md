@@ -6,5 +6,5 @@
 * Software Architecture
 * User Interface
 * Writing Code
-* Suggestions for improvements
+* Suggestions for Improvements
 
