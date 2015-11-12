@@ -5,7 +5,7 @@
 * [Workflow](workflow.md)
 * [Software Architecture](software_architecture.md)
 * [User Interface](user_interface.md)
-   * Why QML?
+   * [Why QML?](why_qml.md)
 * [Writing Code](writing_code.md)
    * [Setting up on Windows](setting_up.md)
    * [Implementing a feature](implementing_a_feature.md)
