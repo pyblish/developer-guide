@@ -45,3 +45,6 @@ class InstanceProxy(pyblish.api.Instance):
             "children": list(self),
         }
 ```
+
+[logic.process]: https://github.com/pyblish/pyblish/blob/master/pyblish/logic.py
+[plugin.process]: https://github.com/pyblish/pyblish/blob/master/pyblish/plugin.py
