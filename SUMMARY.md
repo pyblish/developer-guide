@@ -7,5 +7,6 @@
 * [User Interface](user_interface.md)
 * [Writing Code](writing_code.md)
    * [Setting up on Windows](setting_up.md)
+   * Implementing an example feature
 * Suggestions for Improvements
 
