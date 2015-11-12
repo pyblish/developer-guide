@@ -9,7 +9,7 @@
     font-family: "Source Code Pro";
 }
 
-blockquote, aside.quote {
+.book .book-body .page-wrapper .page-inner section.normal blockquote {
     color: #AAA;
     background: none;
     border-left: 5px solid #F1F1F1;
