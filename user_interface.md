@@ -1,266 +1,194 @@
 
-### 3. Software Architecture
+### 4. User Interface
 
-Now that we know more about the concepts in Pyblish, let's take a closer look at it fits together in technical terms.
+The current user interface started as a reference implementation with which other user interfaces were to be developed. Since its introduction, the goal of a user interface for publishing has been made more clear and in response a series of improvements and features was added to this implementation.
 
-##### 3.1. Overview
+Due to this origin however, the foundation of its current incarnation is far from strong. Alternatives are most welcome, especially from developers with experience in UI/UX and optionally Qt and Python.
 
-From afar, Pyblish consists of three major components.
+##### 4.1. Why QML?
 
-![image](https://cloud.githubusercontent.com/assets/2152766/11087036/b66da078-884e-11e5-8568-f6a5e54382ac.png)
+TLDR; In order to remain competitive.
 
-The core is designed and developed in isolation and runs without supporting libraries or dependencies. The remainder is optional but useful, such as a graphical user interface along with the glue involved in bridging a host, such as Autodesk Maya, to Pyblish.
+[pyblish-qml][] is the officially supported user interface for Pyblish and is written in Python 2.7 and QML 2 with PyQt5.
 
-The integration consists of a server and a series of plug-ins, both of which we will talk more about later.
+QML is a declarative language developed by The Qt Company to develop OpenGL accelerated graphical user interfaces. QML was originally inspired by CSS and aims to simplify the development of graphical user interfaces by decoupling code written for visuals from code written for business logic, enabling artists to step in with less of a programming background, and programmers to worry less about cosmetics.
 
-##### 3.2. Module structure
+QML was chosen for being the successor to the traditional Widgets, for its novelty and speed in terms of how software is developed but most importantly in order to, as an individual/small company, be able to compete with big organisations who may share my goals but who are stuck writing widgets for the foreseeable future.
 
-The the user, Pyblish is an executable they run to publish things. To you, there are many decoupled modules involved in making Pyblish work and in making it maintainable long term.
+All roads point to PySide and Qt 4 being the most lucrative development framework for film and games, but if one is to inspire change and take any kind of lead, one must "think different".
 
-Each module is versioned using [Semantic Versioning][semver] and developed independently. Each hosting source code, issue tracker and wiki.
+Many integration endpoints, such as Autodesk Maya, facilitate integration by providing the developer with an ability to *mix* custom software with the host. For example, one can both augment and append to existing widgets within the host itself.
 
-[semver]: http://semver.org/
+This has many benefits.
 
-Here are some examples of modules and packages.
+- Custom software can get by with zero dependencies, apart from the source code. This makes deployment effortless.
+- Communication between host and custom software is equal compared with what already happening internally.
+- Custom software will be more familiar to the end-user who may in turn wish to extend it further.
 
-<table>
-<thead>
-<th></th>    <th>Module</th> <th>Package</th>    <th>Description</th>
-</thead>
-<tbody>
+However it doesn't come without cons.
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087037/bd4964ea-884e-11e5-928a-3e3c84f37662.png"></td>
-<td><a link="https://github.com/pyblish/pyblish-win">pyblish-win</a></td>
-<td></td>
-<td>Officially supported modules and binaries for Windows (package)</td>
-</tr>
+- Not all software provides this level of integration, splitting custom software into two parts.
+- Each provider provides it differently, meaning bugs appearing in one host may not appear elsewhere, further dividing the codebase.
+- Custom software shares the weaknesses of its provider.
+  - This includes things such as having threads locked at the whim of the provider.
+  - Not facilitating asynchronism, leading to a jittery end-user experience.
+  - Not being able to introspect the custom software environment; the provider is in charge and it is proprietary.
+- Finally, custom software being limited to past trends and unable to benefit from new developments in the field, impairing your ability to compete.
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087037/bd4964ea-884e-11e5-928a-3e3c84f37662.png"></td>
-<td><a link="https://github.com/pyblish/pyblish-linux">pyblish-linux</a></td>
-<td></td>
-<td>Officially supported modules and binaries for Linux (package)</td>
-</tr>
+For hack-and-slash software, written in the heat of production, the provided integration is indispensable. Enabling the rapid development of tools otherwise not possible. For software meant to last, the future is now. Literally. In that one must consider how to ensure survival an ever-changing environment.
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087037/bd4964ea-884e-11e5-928a-3e3c84f37662.png"></td>
-<td><a link="https://github.com/pyblish/pyblish-osx">pyblish-osx</a></td>
-<td></td>
-<td>Officially supported modules and binaries for OSX (package)</td>
-</tr>
+##### 4.2. A primer in inter-process communication
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087037/bd4964ea-884e-11e5-928a-3e3c84f37662.png"></td>
-<td><a link="https://github.com/pyblish/pyblish-x">pyblish-x</a></td>
-<td>pyblish-win</td>
-<td>Officially supported modules (package)</td>
-</tr>
+Developing for the user interface of Pyblish requires an understanding of inter-process communication (IPC), so the following is a quick-start for those unfamiliar with it.
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087051/d2fb2620-884e-11e5-940a-f57c3265f8fc.png"></td>
-<td><a link="https://github.com/pyblish/pyblish">pyblish</a></td>
-<td>pyblish-x</td>
-<td>Core module, the heart of Pyblish.</td>
-</tr>
+[pyblish-qml][] runs as an individual process on the local machine and communicates with a host via Remote Procedure Calls (RPC) over standard TCP, encapsulated into the [pyblish-rpc][] module.
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087051/d2fb2620-884e-11e5-940a-f57c3265f8fc.png"></td>
-<td><a link="https://github.com/pyblish/pyblish-qml">pyblish-qml</a></td>
-<td>pyblish-x</td>
-<td>User interface module, the face of Pyblish.</td>
-</tr>
+![image](https://cloud.githubusercontent.com/assets/2152766/11087234/962c0cda-8850-11e5-87d8-db8aacf67df6.png)
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087051/d2fb2620-884e-11e5-940a-f57c3265f8fc.png"></td>
-<td><a link="https://github.com/pyblish/pyblish-tray">pyblish-tray</a></td>
-<td>pyblish-x</td>
-<td>The Pyblish control panel</td>
-</tr>
+Any host interested in providing their user with a user interface to Pyblish must first:
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087051/d2fb2620-884e-11e5-940a-f57c3265f8fc.png"></td>
-<td><a link="https://github.com/pyblish/pyblish-rpc">pyblish-rpc</a></td>
-<td>pyblish-x</td>
-<td>Communication bridge between the core and user interface of Pyblish.</td>
-</tr>
+1. Start listening at a given port number
+2. Send this number to [pyblish-qml][] - the client
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087051/d2fb2620-884e-11e5-940a-f57c3265f8fc.png"></td>
-<td><a link="https://github.com/pyblish/pyblish-integration">pyblish-integration</a></td>
-<td>pyblish-x</td>
-<td>Supporting module for [pyblish-rpc][]</td>
-</tr>
+The client has a server of its own, listening for incoming requests in the same manner as the host. The address of this server is fixed at `9090`.
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087051/d2fb2620-884e-11e5-940a-f57c3265f8fc.png"></td>
-<td><a link="https://github.com/pyblish/pyblish-maya">pyblish-maya</a></td>
-<td>pyblish-x</td>
-<td>Integration module for Autodesk Maya</td>
-</tr>
+![image](https://cloud.githubusercontent.com/assets/2152766/11087259/c115d37c-8850-11e5-8a0f-c7966516cf8d.png)
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087051/d2fb2620-884e-11e5-940a-f57c3265f8fc.png"></td>
-<td><a link="https://github.com/pyblish/pyblish-houdini">pyblish-houdini</a></td>
-<td>pyblish-x</td>
-<td>Integration module for SideFx Houdini</td>
-</tr>
+Both servers uses the Python Standard Library XML-RPC module which works like this.
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087051/d2fb2620-884e-11e5-940a-f57c3265f8fc.png"></td>
-<td><a link="https://github.com/pyblish/pyblish-ci">pyblish-ci</a></td>
-<td></td>
-<td>Continuous integration server for Pyblish.</td>
-</tr>
+```python
+from SimpleXMLRPCServer import SimpleXMLRPCServer as Server
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087051/d2fb2620-884e-11e5-940a-f57c3265f8fc.png"></td>
-<td><a link="https://github.com/pyblish/pyblish-event">pyblish-event</a></td>
-<td></td>
-<td>Reference implementation of a cloud-based event monitor.</td>
-</tr>
+# Implement functionality
+def function(a, b):
+  return a + b
 
-</tbody>
-</table>
+# Expose functionality through server
+ip, port = "127.0.0.1", 10000
+server = Server((ip, port))
+server.register_function(function)
+server.serve_forever()
+```
 
-[module]: https://cloud.githubusercontent.com/assets/2152766/11087037/bd4964ea-884e-11e5-928a-3e3c84f37662.png
+This will start an infinite loop, listening for calls to `function(a, b)`, with which we can communicate from a separate process like this.
 
-##### 3.3. Source structure
+```python
+import xmlrpclib
+proxy = xmlrpclib.ServerProxy("http://127.0.0.1:10000")
+print proxy.function(5, 10)
+# 15
+```
 
-The following is the file structure of the core Pyblish module.
+And that's all there is to it.
 
-<table>
-<thead>
-<th></th>    <th>File</th>    <th>Description</th>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087071/f1c6172c-884e-11e5-87b2-d2f502a01961.png"></td>
-<td><a link="https://github.com/pyblish/pyblish/tree/master/pyblish/plugins">plugins</a></td>
-<td>Default plug-ins.</td>
-</tr>
+> Take a break. Have a Kit-kat
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087071/f1c6172c-884e-11e5-87b2-d2f502a01961.png"></td>
-<td><a link="https://github.com/pyblish/pyblish/tree/master/pyblish/vendor">vendor</a></td>
-<td>Third party dependencies (no external dependencies).</td>
-</tr>
+Take a moment to really absorb the above information, experiment with it, try to break it. This technique lays the foundation not only for how [pyblish-qml][] communicates with the core, but for how inter-process communication works everywhere. There are many variations to this approach that you should explore to really get a sense of the possibilities of this technique.
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087076/fb636500-884e-11e5-836c-a78d116dd9d5.png"></td>
-<td><a link="https://github.com/pyblish/pyblish/blob/master/pyblish/__init__.py">__init__.py</a></td>
-<td>Global, private variables.</td>
-</tr>
+Here are some well-known variations for you to Google about.
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087076/fb636500-884e-11e5-836c-a78d116dd9d5.png"></td>
-<td><a link="https://github.com/pyblish/pyblish/blob/master/pyblish/__main__.py">__main__.py</a></td>
-<td>Making this package executable.</td>
-</tr>
+- Remote Procedure Calls
+- Message Queues
+- RESTful
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087076/fb636500-884e-11e5-836c-a78d116dd9d5.png"></td>
-<td><a link="https://github.com/pyblish/pyblish/blob/master/pyblish/api.py">api.py</a></td>
-<td>The developer facing interface to Pyblish.</td>
-</tr>
+And here is some recommended reading of particular interest.
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087076/fb636500-884e-11e5-836c-a78d116dd9d5.png"></td>
-<td><a link="https://github.com/pyblish/pyblish/blob/master/pyblish/cli.py">cli.py</a></td>
-<td>Command-line interface, written with the Click support library.</td>
-</tr>
+- [The ZeroMQ Guide][01]
+- [RESTful in Practice][02]
+- [Enterprise Application Integration][03]
+- [Enterprise Integration Patterns][04]
+- [Service Design Patterns][05]
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087076/fb636500-884e-11e5-836c-a78d116dd9d5.png"></td>
-<td><a link="https://github.com/pyblish/pyblish/blob/master/pyblish/compat.py">compat.py</a></td>
-<td>Backwards and forward-compatibility features.</td>
-</tr>
+> Break over
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087076/fb636500-884e-11e5-836c-a78d116dd9d5.png"></td>
-<td><a link="https://github.com/pyblish/pyblish/blob/master/pyblish/error.py">error.py</a></td>
-<td><strike>Deprecated</strike></td>
-</tr>
+##### 4.3 Communicating with the UI
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087076/fb636500-884e-11e5-836c-a78d116dd9d5.png"></td>
-<td><a link="https://github.com/pyblish/pyblish/blob/master/pyblish/lib.py">lib.py</a></td>
-<td>Helper functions used across surrounding Python modules.</td>
-</tr>
+As mentioned above, the UI is already set-up to listen on port `9090` so all we need to do in order to speak with it is connect.
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087076/fb636500-884e-11e5-836c-a78d116dd9d5.png"></td>
-<td><a link="https://github.com/pyblish/pyblish/blob/master/pyblish/main.py">main.py</a></td>
-<td><strike>Deprecated</strike></td>
-</tr>
+```python
+import xmlrpclib
+proxy = xmlrpclib.ServerProxy("http://127.0.0.1:9090")
+proxy.show()
+```
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087076/fb636500-884e-11e5-836c-a78d116dd9d5.png"></td>
-<td><a link="https://github.com/pyblish/pyblish/blob/master/pyblish/util.py">util.py</a></td>
-<td>Convenience module for publishing via scripting.</td>
-</tr>
+You can also use the convenience function provided by the [pyblish-qml][] module.
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087076/fb636500-884e-11e5-836c-a78d116dd9d5.png"></td>
-<td><a link="https://github.com/pyblish/pyblish/blob/master/pyblish/version.py">version.py</a></td>
-<td>The semantic version of this Pyblish module.</td>
-</tr>
-</tbody>
-</table>
+> Ensure you have [pyblish-qml][] already running before attempting this.
 
-And finally, the most relevant files in terms of developing for Pyblish:
+```python
+from pyblish_qml import client
+proxy = client.proxy()
+proxy.show()
+```
 
-<table>
-<thead>
-<th></th>    <th>File</th>    <th>Description</th>
-</thead>
-<tbody>
+The convenience function does a few more things, like including a reasonable timeout along with not requiring the user to specify an exact address and port number.
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087076/fb636500-884e-11e5-836c-a78d116dd9d5.png"></td>
-<td><a link="https://github.com/pyblish/pyblish/blob/master/pyblish/plugin.py">plugin.py</a></td>
-<td>Plug-in definition, registration and discovery on disk.</td>
-</tr>
+<details>
+<summary>Having problems?</summary>
 
-<tr>
-<td><img src="https://cloud.githubusercontent.com/assets/2152766/11087076/fb636500-884e-11e5-836c-a78d116dd9d5.png"></td>
-<td><a link="https://github.com/pyblish/pyblish/blob/master/pyblish/logic.py">logic.py</a></td>
-<td>The brains of processing.</td>
-</tr>
+Without the UI running, you will get the familiar error message.
 
-</tbody>
-</table>
+```bash
+No connection could be made because the target machine actively refused it
+```
+</details>
 
-##### 3.4 Processing Pipeline
+Here are some of the functionality exposed via the proxy.
 
-As soon as the user hits "publish", three things happen.
+- show(int, dict)
+- hide()
+- quit()
+- kill()
+- heartbeat(int)
+- find_available_port()
 
-1. Create
-2. Sort
-3. Run
+##### 4.4. UI Communicating with the Host
 
-Or, more specifically.
+Conversely, the UI creates a proxy much like the above and requests data of its own.
 
-1. A new [Context][] is instantiated and plug-ins discovered.
-2. [logic.process][] determines which plug-in to run next.
-3. [plugin.process][] performs the actual processing.
+Remember there are two processes running, one local and one remote. The remote in the case of the UI is the host. Now let's have a look at what happens on the local side during the processing of a single plug-in from the user interface.
 
-The [logic][] module is used primarily in the interfaces with which a user interacts, namely the command-line interface and graphical user interface. It only handles delegating of tasks to functions capable of producing results. In this case, a literal dictionary called [results][].
+1. User hits publish
+2. UI elements and parsed into proxies
+3. Proxies are sent to [logic.process][]
+4. [logic.process][] delegates the task to the remote
 
-> We'll see a bit later how this works with inter-process communication.
+Because Python in one process does not have access to the local variables of another process, the delegation involves a conversion of the local variables and instantiated classes into something we can transfer without loss of information and also use in order to recreate the exact scenario on the remote; JSON.
 
-[plugin.process][] then is the brains of the operation and is the function actually running your plug-in, passing along the currently active [Instance][]. Its responsibility is to..
+The conversion looks something like this.
 
-1. Intercept log messages
-2. Handle exceptions
-3. Format the resulting data
-4. Build the [results][] dictionary.
+```python
+class format_instance(instance):
+  """Capture the essence of an Instance, just enough to visualise in a UI"""
+  return {
+      "name": instance.name,
+      "id": instance.id,
+      "children": children,
+      "data": format_data(instance.data)
+  }
+```
 
-During processing, the context may be extended with [Instance][]'s. These may be added at any part of the pipeline, but only subsequent plug-ins will see them, which is why they are typically added as early as possible in what is commonly referred to as "Collection". By the end of processing, a [results][] dictionary is created and stored within the [Context][].
+This is then the data used in the UI, in place of the original instance on the remote. Locally, the data is wrapped up in a class called `InstanceProxy` which looks something like this.
 
-The [results][] dictionary is appended to a list within the [Context][] - accessible as `data["results"]` - and captures information regarding the order in which plug-ins and instances are processed and all messages therein. It is primarily intended for graphical user interfaces to visualise the events that occur during processing, but is open to developers to produce visualisations of their own. For example you may be interested in storing the results in a log somewhere on the cloud for auditing purposes such that one may "go back in time" and inspect what actually went on back then.
+```python
+class InstanceProxy(pyblish.api.Instance):
+    @classmethod
+    def from_json(cls, instance):
+        self = cls(instance.pop("name"])
+        copy = instance
+        copy["data"] = copy.pop("data")
+        self.__dict__.update(copy)
+        self[:] = instance["children"]
+        return self
 
-
+    def to_json(self):
+        return {
+            "name": self.name,
+            "id": self.id,
+            "data": self.data,
+            "children": list(self),
+        }
+```
 
 [maya]: https://github.com/pyblish/pyblish-maya
 [houdini]: https://github.com/pyblish/pyblish-houdini
