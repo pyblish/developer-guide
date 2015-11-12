@@ -40,9 +40,14 @@ button.show()
 app.exec_()
 ```
 
-### 5.1.2. Setting up Pyblish
+### 5.1.2 Setting up Pyblish
 
-The exact repositories to clone depends on which areas you are interested in developing for, but here are the basics.
+To develop for Pyblish means to fork relevant repositories onto your GitHub account, make a change and finally submit a pull-request.
+
+The exact repositories to fork depends on which areas you are interested in developing for. See the list below for hints and fork the ones of interest.
+
+Replace the addresses to the ones below with your forked equivalent and clone.
+
 
 ```bash
 :: Required
@@ -52,7 +57,7 @@ git clone https://github.com/pyblish/pyblish
 git clone https://github.com/pyblish/pyblish-qml
 git clone https://github.com/pyblish/pyblish-rpc
 
-:: For integration with a new host
+:: For any form of integration or integration with a new host
 git clone https://github.com/pyblish/pyblish-integration
 
 :: For integration with an existing host
@@ -66,6 +71,8 @@ git clone https://github.com/pyblish/pyblish-modo
 :: COPY PASTE ALL OF THE ABOVE
 ```
 
+### 5.1.3 Repository Layout
+
 Each of these repositories are set-up in the same way; at the root level there is a Python package. So what we need to do is somehow expose this package onto your PYTHONPATH.
 
 How you choose to do that is not important, but here are some ideas.
@@ -73,7 +80,7 @@ How you choose to do that is not important, but here are some ideas.
 1. Append the absolute path to each repository to your PYTHONPATH
 2. Create a "junction" to each Python package within each repository in some directory on your PYTHONPATH.
 
-### 5.1.3 Testing out the installation
+### 5.1.4 Testing out the installation
 
 In a new terminal with the PYTHONPATH set, let's run the test and ensure all is well.
 
