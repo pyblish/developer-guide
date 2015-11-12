@@ -8,3 +8,10 @@
     padding: 0.7em;
     font-family: "Source Code Pro";
 }
+
+blockquote, aside.quote {
+    color: #AAA;
+    background: none;
+    border-left: 5px solid #F1F1F1;
+    padding-left: 8px;
+}
