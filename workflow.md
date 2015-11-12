@@ -1,11 +1,11 @@
 
-### 2. Workflow
+# 2. Workflow
 
 Pyblish is designed to be flexible whilst providing as much aid as possible.
 
 Aid is delivered in the form of API and user interface. The API provides the developer with a level of abstraction within which pipeline requirements are to be described. Once described, Pyblish is able to automate and visualise a lot of things for you and your artists.
 
-##### 2.1. CVEI
+### 2.1. CVEI
 
 CVEI is an architectural pattern for how to describe a pipeline in terms of publishing and is an acronym for Collection, Validation, Extraction and Integration. It is described and executed in the following order.
 
@@ -16,13 +16,13 @@ CVEI is an architectural pattern for how to describe a pipeline in terms of publ
 
 It's important to point out that these steps are mere guidelines and that Pyblish triggers whatever you throw at it in any order. But should you choose to mold your definition and understanding of your publishing pipeline in this way you enable yourself and those around you to take advantage of and to share the knowledge and vocabulary of other Pyblishers.
 
-##### 2.2. Plug-ins
+### 2.2. Plug-ins
 
 The way you express yourself through CVEI is through the use of "plug-ins".
 
 The Pyblish API is based around the notion that you write functionality that Pyblish then runs. The order in which plug-ins run is then something you control. Plug-ins are generally written by the technical director, but are also flexible enough to enable the artist to add functionality on-the-fly by simply registering it with Pyblish at run-time.
 
-##### 2.3. Communication
+### 2.3. Communication
 
 It is the technical directors responsibility to identify and program the various conventions found in a pipeline so as to safeguard an artist from producing content that might eventually lead to problems further down the pipeline. The technical director then communicates his definitions with the artist via 3 primary mechanisms.
 
@@ -36,8 +36,7 @@ Log messages provide the artist with hints as to what is currently happening and
 
 Finally, the exception messages signal to the artist that a plug-in has failed. This can either be during validation, in which case processing does not proceed to extraction.
 
-<details>
-<summary><strong>See example</strong></summary>
+**Example**
 
 The following is an example of each of the three mechanisms.
 
@@ -54,16 +53,14 @@ class MyPlugin(pyblish.api.Plugin):
         raise Exception("Exceptions signal the failure of a plug-in.")
         assert False is True, "Any kind of Python exception is ok."
 ```
-</details>
 
-##### 2.4. Context
+### 2.4. Context
 
 Pyblish provides a level of orchestration amongst your plug-ins via the used of shared "context".
 
 This object is created at the start of processing of the first plug-in and is passed along from one plug-in to the next. It is via the context that plug-ins may share and exchange information with one another. You can think of the context as a global variable with a lifetime spanning between the start and end of a single publish.
 
-<details>
-<summary><strong>See example</strong></summary>
+**Example**
 
 The following is an example of how to access the context.
 
@@ -85,9 +82,7 @@ class MyPlugin(pyblish.api.Plugin):
         self.log.info("Publishing from {cwd}".format(**context.data))
 ```
 
-</details>
-
-##### 2.5. Instance
+### 2.5. Instance
 
 The final and most important mechanism for orchestrating plug-ins is the [Instance][].
 
@@ -97,8 +92,7 @@ The general idea is for you to identify and articulate the parts of your work ar
 
 Technically, Instances are also subclassed from the standard Python list in order to facilitate either a hierarchy of Instances or arbitrary data that may be better represented as individual items - such as Maya nodes - and also provide access to it's own `.data` dictionary.
 
-<details>
-<summary><strong>See example</strong></summary>
+**Example**
 
 The current `instance` is accessed in the same way as the `context`.
 
@@ -110,10 +104,7 @@ class MyPlugin(pyblish.api.Plugin):
         self.log.info("Publishing from {cwd}".format(**context.data))
 ```
 
-
-</details>
-
-##### 2.6. Conditions
+### 2.6. Conditions
 
 A final thing to mention about instances is about conditions.
 
@@ -123,8 +114,7 @@ In Pyblish, Instances are "paired" or "associated" with one or more plug-in via 
 
 This is an incredibly powerful and unique aspect of Pyblish and is the one with which you are able to design vast and complex hierarchies and dependencies amongst tens, hundreds even thousands of plug-ins whilst still retaining that surgical precision needed to pinpoint and massage the tiniest problem domains.
 
-<details>
-<summary><strong>See example</strong></summary>
+**Example**
 
 The following is an example of two Instances being identified and "collected". The instances are then passed onto subsequent plug-ins, but only one of the instances is a match with one of the plug-ins, as defined by it's "family" and the "families" each plug-in supports.
 
@@ -164,4 +154,3 @@ pyblish.util.publish()
 # The person is "john"
 # The prop is "door"
 ```
-</details>
