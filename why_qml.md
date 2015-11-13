@@ -1,5 +1,5 @@
 
-# 4.1 Why QML?
+# Why QML?
 
 TLDR; In order to remain competitive.
 
