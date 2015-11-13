@@ -1,8 +1,8 @@
-# 5.2 Implementing a feature
+# Implementing a feature
 
 The feature we will implement will be adding the ability for Pyblish to support an [Instance][] with multiple families.
 
-### 5.2.1 Defining your goals
+### Defining your goals
 
 Any change to Pyblish must..
 
@@ -29,13 +29,13 @@ Here is an example of a new **feature** - [Instance multi-family support][1]<br>
 [1]: https://github.com/pyblish/pyblish/issues/231
 [2]: https://github.com/pyblish/pyblish/issues/229
 
-### 5.2.2 Zoning in
+### Zoning in
 
 The next step is part of what is commonly referred to as test-driven development and is the point at which we write a test for a feature that doesn't yet exist or bugfix that hasn't yet been fixed.
 
 This test will and should fail, up until the point at which we are finished. And that's how we know we're done. Simple.
 
-### 5.2.3 Writing tests
+### Writing tests
 
 We'll be implementing the feature referenced above, to add support for multiple families within a single instance. A major overhaul to how plug-ins are created and how TDs are able to think about their publishing pipeline.
 
@@ -122,7 +122,7 @@ Ran 121 tests in 0.588s
 FAILED (failures=1)
 ```
 
-### 5.2.4 Fixing the test
+### Fixing the test
 
 Now that we have a problem, let's find a solution.
 
@@ -200,7 +200,7 @@ OK
 
 Hurrah!
 
-### 5.2.5 Busywork
+### Busywork
 
 The final step is to increment the version of your respective repository and make a note of what has changed in it's changelog.
 
@@ -244,7 +244,7 @@ It's customary to include a reference to the corresponding issue, here that is [
 
 [#231]: https://github.com/pyblish/pyblish/issues/231
 
-#### 5.2.6 Committing
+#### Committing
 
 When making commits, here are a few guidelines for you to think about.
 
