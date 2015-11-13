@@ -6,7 +6,7 @@
 * [Software Architecture](software_architecture.md)
 * [User Interface](user_interface.md)
    * [Why QML?](why_qml.md)
-   * [A primer on interprocess-communication](interprocess-communication.md)
+   * [A primer on IPC](interprocess-communication.md)
    * [Communicating with the UI](communicating_with_the_ui.md)
    * [Communicating with the host](communicating_with_the_host.md)
    * Developing with IPC
