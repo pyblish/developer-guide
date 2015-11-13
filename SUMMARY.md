@@ -9,11 +9,11 @@
    * [A primer on interprocess-communication](interprocess-communication.md)
    * [Communicating with the UI](communicating_with_the_ui.md)
    * [Communicating with the host](communicating_with_the_host.md)
-* [Writing Code](writing_code.md)
-   * [Setting up on Windows](setting_up.md)
-   * [Implementing a feature](implementing_a_feature.md)
-   * [Creating a pull-request](creating_a_pull-request.md)
 * Suggestions for Improvements
 * [Examples](examples.md)
    * [Writing a UI](writing_a_ui.md)
+   * [Writing Code](writing_code.md)
+       * [Setting up on Windows](setting_up.md)
+       * [Implementing a feature](implementing_a_feature.md)
+       * [Creating a pull-request](creating_a_pull-request.md)
 
