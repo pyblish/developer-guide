@@ -16,13 +16,13 @@ Once finished reading this article, you should feel confident in maintaining and
 <br>
 <br>
 
-### 1. Overview
+### Overview
 
 Pyblish is an analytics and automation framework developed in Python for the visual effects and games industries in order to detect and resolve problems as early in the pipeline as possible.
 
 It was designed to combat issues encountered in the day-to-day development of content involving chains of artists working on disparate parts of the same end result. Where a minor fault early on can have a significant impact later and be that much more expensive to fix.
 
-##### 1.1. Modularity
+##### Modularity
 
 The framework is built as a series of "modules".
 
@@ -34,7 +34,7 @@ Modules either define, extend or integrate Pyblish at some level.
 
 At the time of this writing, there are 40 actively developed repositories in the [Pyblish Organisation on GitHub][2].
 
-##### 1.2. Packages
+##### Packages
 
 The inherent flexibility of modules maintaining their own version comes at a cost; maintaining a working state between all possible combinations of versions.
 
@@ -59,7 +59,7 @@ The packages then provide both the user with a foundation for communicating whic
 
 > "I'm using Pyblish X version 0.2 and I'm having this problem."
 
-##### 1.3. Integrations
+##### Integrations
 
 Pyblish tackles the human "problem" of not being adequately precise or consistent with respect to what is required during the production of computer graphics. As such it can't be limited by the specific software you run.
 
@@ -78,7 +78,7 @@ Integrations are simple and typically boils down to a few lines of code with opt
 
 - Integration Guide (coming soon)
 
-##### 1.4. Extensions
+##### Extensions
 
 Because the problems you face during production are likely unique, Pyblish cannot make too many assumptions about how you will attempt to solve them.
 
