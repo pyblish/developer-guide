@@ -9,6 +9,7 @@
    * [A primer on interprocess-communication](interprocess-communication.md)
    * [Communicating with the UI](communicating_with_the_ui.md)
    * [Communicating with the host](communicating_with_the_host.md)
+   * Developing with IPC
 * Suggestions for Improvements
 * [Examples](examples.md)
    * [Writing Code](writing_code.md)
