@@ -92,7 +92,6 @@ class Window(QtGui.QWidget):
         self.resize(400, 400)
 
         header = QtGui.QWidget()
-        filler = QtGui.QWidget()
 
         # Load logo from URL
         pixmap = QtGui.QPixmap()
@@ -103,6 +102,7 @@ class Window(QtGui.QWidget):
 
         logo = QtGui.QLabel()
         logo.setPixmap(pixmap)
+        filler = QtGui.QWidget()
 
         layout = QtGui.QHBoxLayout(header)
         layout.addWidget(logo)
@@ -120,6 +120,7 @@ class Window(QtGui.QWidget):
         layout.setContentsMargins(0, 0, 0, 0)
 
         footer = QtGui.QWidget()
+
         filler = QtGui.QWidget()
         publish = QtGui.QPushButton(">")
         refresh = QtGui.QPushButton("R")
@@ -137,7 +138,8 @@ class Window(QtGui.QWidget):
         layout.addWidget(header)
         layout.addWidget(body)
         layout.addWidget(footer)
-
+        
+        # Store references for later
         self.instance_list = instance_list
         self.plugin_list = plugin_list
 ```
@@ -178,7 +180,7 @@ def refresh(self):
 
 ### 6.5 Mocks
 
-Rather than require an active scene with actual content inside of it, we will mock up a few plug-ins that "fake" a real scene in order to simplify development further.
+The above works well, but assumes the presence of actual content from which to collect instances. But rather than require all that, we will mock up a few plug-ins that "fake" a real scene in order to simplify development further.
 
 ```python
 class CollectFakeInstances(pyblish.api.Collector):
@@ -201,7 +203,66 @@ for plugin in (CollectFakeInstances, ValidateFakeInstances):
 
 Now when we run `refresh()`, will will get both plug-ins and instances for us to test with. Win!
 
-###
+### 6.6 Event handlers
 
+Now let's hook up our buttons with functionality in Pyblish. Here are the methods that will respond to user clicks.
+
+```python
+def on_publish_pressed(self):
+    print("Publishing..")
+    failed = False
+    for result in pyblish.util.publish().data["results"]:
+        if result["error"] is not None:
+            failed = True
+
+        for record in result["records"]:
+            print(record.msg)
+
+    if failed:
+        self.signal_failure()
+        print("Failed..")
+    else:
+        self.signal_success()
+        print("Success!")
+
+def on_refresh_pressed(self):
+    print("Refreshing")
+    self.refresh()
+```
+
+### 6.7 Feedback
+
+The final and important task is communicating the events of publishing to the user. We will do this by flashing the window either red, for failure, or green, for success.
+
+```python
+def signal_success(self):
+    self.setStyleSheet("""
+        #Window {
+            background-color: green;
+        }
+    """)
+    QtCore.QTimer.singleShot(300, self.reset_signal)
+
+def signal_failure(self):
+    self.setStyleSheet("""
+        #Window {
+            background-color: red;
+        }
+    """)
+    QtCore.QTimer.singleShot(300, self.reset_signal)
+
+def reset_signal(self):
+    self.setStyleSheet("")
+```
+
+### 6.8 Conclusion
+
+This article covers the primary components of building a graphical user interface for Pyblish, but of course has many things of interest to add.
+
+For example, in a real-world example, and which is the case in [pyblish-qml][], one would likely benefit from a model/view separation as opposed to using `QListWidget` and `QListWidgetItem`. Where items and their state are stored separate from their visual representation. It is in this way you can achieve much more complex interaction and visualisation, such as which item is performing any kind of action, along with allowing the user to toggle state on/off.
+
+For final reference, here is again the full source code of this example.
+
+- https://gist.github.com/mottosso/1443b177e15710ee36e4
 
 [pyblish-qml]: https://github.com/pyblish/pyblish-qml
