@@ -29,6 +29,8 @@ Here are some of the functionality exposed via the proxy.
 - heartbeat(int)
 - find_available_port()
 
+<br>
+
 **Having problems?**
 
 Without the UI running, you will get the familiar error message.
