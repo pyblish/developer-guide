@@ -16,36 +16,6 @@ Once finished reading this article, you should feel confident in maintaining and
 <br>
 <br>
 
-**Contents at a glance**
-
-- Overview
- - Modularity
- - Integrations
- - Extensions
-- Workflow
- - CVEI
- - Plug-ins
-- Software Architecture
- - Overview
- - Module structure
- - Source structure
-- Writing code
- - Software
- - Platform
- - Conventions
-- User Interface
- - Overview
- - Inter-process communication
- - Qt Meta Language (QML)
- - Extending the user interface
-- Suggestions for improvements
-
-
-<br>
-<br>
-<br>
-
-
 ### 1. Overview
 
 Pyblish is an analytics and automation framework developed in Python for the visual effects and games industries in order to detect and resolve problems as early in the pipeline as possible.
