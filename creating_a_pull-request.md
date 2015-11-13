@@ -1,4 +1,4 @@
-# 5.3 Creating a pull-request
+# Creating a pull-request
 
 Once you've discussed a feature, passed your tests and produced a working implementation, it's time to submit a pull-request for code review.
 
@@ -6,7 +6,7 @@ Code review takes place on GitHub in the relevant repository and usually takes a
 
 The general idea is that once your change passes code review, it's on.
 
-### 5.3.1 Getting on
+### Getting on
 
 Once you've commited your changes to your GitHub fork, it's time to make the pull-request.
 
@@ -14,7 +14,7 @@ Once you've commited your changes to your GitHub fork, it's time to make the pul
 
 Feel free to provide a meaningful description, raise any concerns or questions you might have about your work, otherwise it is assumed the code and commit messages speak for itself.
 
-### 5.3.2 Continuous integration
+### Continuous integration
 
 Once you're submitted a pull-request and automated testing session begins.
 
@@ -38,6 +38,6 @@ Nothing generally gets merged without an all-clear.
 
 Also note that you are welcome to submit pull-requests that you don't yet expect to pass these tests, in the interest of finding out what you have left to do. Each test will provide you with an amount of information useful in hunting down bugs or living up to the conventions and standards of the repository.
 
-### 5.3.4 The aftermath
+### The aftermath
 
 From here, enjoy some peace and quiet and prepare for comments.
