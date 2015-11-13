@@ -29,6 +29,8 @@ It also comes with a few cons.
   - Not facilitating asynchronism, leading to a jittery end-user experience.
   - Not being able to introspect the custom software environment; the provider is in charge and it is proprietary.
 
+<br>
+
 For hack-and-slash software, written in the heat of production, the provided integration is indispensable. Enabling the rapid development of tools otherwise not possible. For software meant to last, the future is now.
 
 [pyblish-qml]: https://github.com/pyblish/pyblish-qml
