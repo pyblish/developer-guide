@@ -1,4 +1,5 @@
-![image](https://cloud.githubusercontent.com/assets/2152766/11151031/ce9fabf2-8a22-11e5-89f4-33f1f836a291.png)
+![image](https://cloud.githubusercontent.com/assets/2152766/11151073/fea3687a-8a22-11e5-9410-26a6a0dc36ae.png)
+
 
 
 A maintainers and feature developers guide to Pyblish.
