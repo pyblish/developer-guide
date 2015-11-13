@@ -9,6 +9,10 @@
 /*    font-family: "Source Code Pro";*/
 /*}*/
 
+html {
+    font-size: 55%;
+}
+
 .book .book-body .page-wrapper .page-inner section.normal blockquote {
     color: #AAA;
     background: none;
