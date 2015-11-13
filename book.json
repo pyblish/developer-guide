@@ -5,5 +5,10 @@
         "pdf": "styles/website.css",
         "mobi": "styles/website.css",
         "epub": "styles/website.css"
+    },
+    "pluginsConfig": {
+        "fontSettings": {
+            "theme": "night"
+        }
     }
 }
