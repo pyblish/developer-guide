@@ -1,4 +1,4 @@
-# 4.2 A primer in inter-process communication
+# A primer in inter-process communication
 
 Developing for the user interface of Pyblish requires an understanding of inter-process communication (IPC), so the following is a quick-start for those unfamiliar with it.
 
