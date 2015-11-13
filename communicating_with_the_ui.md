@@ -36,3 +36,6 @@ Without the UI running, you will get the familiar error message.
 ```bash
 No connection could be made because the target machine actively refused it
 ```
+
+[pyblish-qml]: https://github.com/pyblish/pyblish-qml
+[pyblish-rpc]: https://github.com/pyblish/pyblish-rpc
