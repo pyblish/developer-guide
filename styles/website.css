@@ -13,6 +13,9 @@ html {
     font-size: 55%;
 }
 
+/* Bug-fix
+   Lists have 0 margin-bottom, and p has 0 margin-top,
+   resulting in contact between the two. */
 .book .book-body .page-wrapper .page-inner section.normal ol {
     margin-bottom: .85em;
 }
