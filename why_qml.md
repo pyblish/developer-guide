@@ -13,22 +13,22 @@ QML was chosen as graphical framework for Pyblish due to (1) being the successor
 
 Many integration endpoints, such as Autodesk Maya, facilitate integration by providing the developer with an ability to *mix* custom software with the host. For example, one can both augment and append to existing widgets within the host itself.
 
-This has many pros.
+This has a few pros.
 
-- Custom software can get by with zero dependencies, apart from the source code. This makes deployment effortless.
-- Communication between host and custom software is equal compared with what already happening internally.
-- Custom software will be more familiar to the end-user who may in turn wish to extend it further.
+- Effortless deployment.
+- Effortless installation.
+- Shared memory
 
-However it doesn't come without cons.
+It also comes with a few cons.
 
-- Not all software provides this level of integration, splitting custom software into two parts.
-- Each provider provides it differently, meaning bugs appearing in one host may not appear elsewhere, further dividing the codebase.
-- Custom software shares the weaknesses of its provider.
-  - This includes things such as having threads locked at the whim of the provider.
+- Outdated software
+- Version discrepancies
+- Custom implementations
+- Sharing of weaknesses
+  - Such as having threads locked at the whim of the host
   - Not facilitating asynchronism, leading to a jittery end-user experience.
   - Not being able to introspect the custom software environment; the provider is in charge and it is proprietary.
-- Finally, custom software being limited to past trends and unable to benefit from new developments in the field, impairing your ability to compete.
 
-For hack-and-slash software, written in the heat of production, the provided integration is indispensable. Enabling the rapid development of tools otherwise not possible. For software meant to last, the future is now. Literally. In that one must consider how to ensure survival an ever-changing environment.
+For hack-and-slash software, written in the heat of production, the provided integration is indispensable. Enabling the rapid development of tools otherwise not possible. For software meant to last, the future is now.
 
 [pyblish-qml]: https://github.com/pyblish/pyblish-qml
