@@ -1,4 +1,4 @@
-# 4.4 UI Communicating with the Host
+# UI Communicating with the Host
 
 Conversely, the UI creates a proxy much like the above and requests data of its own.
 
