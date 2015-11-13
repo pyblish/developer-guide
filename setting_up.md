@@ -1,4 +1,4 @@
-# 5.1 Setting up on Windows
+# Setting up on Windows
 
 In order to get started developing for Pyblish on the Windows platform, let's set-up your environment.
 
@@ -12,7 +12,7 @@ You will need:
  
 If you are interested in working with the UI, then you will also need PyQt5.
 
-### 5.1.1 Setting up PyQt
+### Setting up PyQt
 
 Assuming you already have Git and Python installed on your local machine, let's start with PyQt.
 
@@ -40,7 +40,7 @@ button.show()
 app.exec_()
 ```
 
-### 5.1.2 Setting up Pyblish
+### Setting up Pyblish
 
 To develop for Pyblish means to fork relevant repositories onto your GitHub account, make a change and finally submit a pull-request.
 
@@ -71,7 +71,7 @@ git clone https://github.com/pyblish/pyblish-modo
 :: COPY PASTE ALL OF THE ABOVE
 ```
 
-### 5.1.3 Repository Layout
+### Repository Layout
 
 Each of these repositories are set-up in the same way; at the root level there is a Python package. So what we need to do is somehow expose this package onto your PYTHONPATH.
 
@@ -80,7 +80,7 @@ How you choose to do that is not important, but here are some ideas.
 1. Append the absolute path to each repository to your PYTHONPATH
 2. Create a "junction" to each Python package within each repository in some directory on your PYTHONPATH.
 
-### 5.1.4 Testing out the installation
+### Testing out the installation
 
 In a new terminal with the PYTHONPATH set, let's run the test and ensure all is well.
 
