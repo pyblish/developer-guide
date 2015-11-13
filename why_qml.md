@@ -7,9 +7,9 @@ TLDR; In order to remain competitive.
 
 QML is a declarative language developed by The Qt Company to develop OpenGL accelerated graphical user interfaces. QML was originally inspired by CSS and aims to simplify the development of graphical user interfaces by decoupling code written for visuals from code written for business logic, enabling artists to step in with less of a programming background, and programmers to worry less about cosmetics.
 
-QML was chosen for being the successor to the traditional Widgets, for its novelty and speed in terms of how software is developed but most importantly in order to, as an individual/small company, be able to compete with big organisations who may share my goals but who are stuck writing widgets for the foreseeable future.
+QML was chosen as graphical framework for Pyblish due to (1) being the successor to the traditional Widgets, (2) for its novelty and speed in terms of how software is developed but most importantly in order to (3) as an individual/small company be able to compete with big organisations who are in most likelyhood stuck writing widgets for the foreseeable future.
 
-All roads point to PySide and Qt 4 being the most lucrative development framework for film and games, but if one is to inspire change and take any kind of lead, one must "think different".
+### Current state of the art
 
 Many integration endpoints, such as Autodesk Maya, facilitate integration by providing the developer with an ability to *mix* custom software with the host. For example, one can both augment and append to existing widgets within the host itself.
 
