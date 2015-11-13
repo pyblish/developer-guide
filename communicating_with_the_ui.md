@@ -1,4 +1,4 @@
-# 4.3 Communicating with the UI
+# Communicating with the UI
 
 As mentioned previously, the UI is already set-up to listen on port `9090` so all we need to do in order to speak with it is connect.
 
