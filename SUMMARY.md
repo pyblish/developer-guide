@@ -14,6 +14,6 @@
    * [Implementing a feature](implementing_a_feature.md)
    * [Creating a pull-request](creating_a_pull-request.md)
 * Suggestions for Improvements
-* Examples
-    * [Writing a UI](writing_a_ui.md)
+* [Examples](examples.md)
+   * [Writing a UI](writing_a_ui.md)
 
