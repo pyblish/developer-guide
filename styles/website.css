@@ -14,7 +14,7 @@ html {
 }
 
 .gitbook-link {
-    display: hidden;
+    display: none;
 }
 
 /* Bug-fix
