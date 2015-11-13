@@ -80,6 +80,27 @@ How you choose to do that is not important, but here are some ideas.
 1. Append the absolute path to each repository to your PYTHONPATH
 2. Create a "junction" to each Python package within each repository in some directory on your PYTHONPATH.
 
+Here is an example of how to append the most common modules.
+
+```bash
+cd pyblishdev
+set PYTHONPATH=%CD%/pyblish;%CD%/pyblish-rpc;%CD%/pyblish-qml
+```
+
+If you are working with [pyblish-qml][] also make sure to run this test.
+
+```bash
+python -m pyblish_qml.compat
+# Qt detected..
+# ==============================================================================
+# 
+#  - Success!
+# 
+# c:\python27\python.exe is well suited to run Pyblish QML
+# 
+# ==============================================================================
+```
+
 ### Testing out the installation
 
 In a new terminal with the PYTHONPATH set, let's run the test and ensure all is well.
@@ -88,3 +109,5 @@ In a new terminal with the PYTHONPATH set, let's run the test and ensure all is 
 cd pythondev\pyblish
 python run_testsuite.py
 ```
+
+[pyblish-qml]: https://github.com/pyblish/pyblish-qml
