@@ -1,8 +1,8 @@
-# 6. Writing a UI
+# Writing a UI
 
 In this example we're going to write a graphical user interface from scratch. It will be simple, but should be enough to illustrate how [pyblish-qml][] works.
 
-### 6.1 Getting started
+### Getting started
 
 Here is the UI we are going to develop.
 
@@ -25,7 +25,7 @@ Granted this example is rather simplistic, and doesn't include things such as.
 
 And so on. But it should be enough for us to understand how things works under the hood of [pyblish-qml][]
 
-### 6.2 Source Code
+### Source Code
 
 The full source code of this example is included in this Gist.
 
@@ -33,7 +33,7 @@ The full source code of this example is included in this Gist.
 
 Feel free to try it out at home, simply copy-paste the contents of `main.py` into your favourite text editor or Script Editor (Maya, Nuke) and we'll cover what's inside next.
 
-### 6.3 Setup
+### Setup
 
 To start off, we need a QApplication and a window.
 
@@ -79,7 +79,7 @@ with application():
 
 Now our application will run the same regardless of whether we run it within or outside of a host. This can help simplify development a little bit.
 
-### 6.3 Layout
+### Layout
 
 Now let's establish the layout and populate our GUI.
 
@@ -144,7 +144,7 @@ class Window(QtGui.QWidget):
         self.plugin_list = plugin_list
 ```
 
-### 6.4 Refresh
+### Refresh
 
 Now we need to initialise our GUI with contents from Pyblish. We will do this by calling `pyblish.api.discover()` each time the user presses the "Refresh" button.
 
@@ -178,7 +178,7 @@ def refresh(self):
         self.instance_list.addItem(item)
 ```
 
-### 6.5 Mocks
+### Mocks
 
 The above works well, but assumes the presence of actual content from which to collect instances. But rather than require all that, we will mock up a few plug-ins that "fake" a real scene in order to simplify development further.
 
@@ -203,7 +203,7 @@ for plugin in (CollectFakeInstances, ValidateFakeInstances):
 
 Now when we run `refresh()`, will will get both plug-ins and instances for us to test with. Win!
 
-### 6.6 Event handlers
+### Event handlers
 
 Now let's hook up our buttons with functionality in Pyblish. Here are the methods that will respond to user clicks.
 
@@ -230,7 +230,7 @@ def on_refresh_pressed(self):
     self.refresh()
 ```
 
-### 6.7 Feedback
+### Feedback
 
 The final and important task is communicating the events of publishing to the user. We will do this by flashing the window either red, for failure, or green, for success.
 
@@ -255,7 +255,7 @@ def reset_signal(self):
     self.setStyleSheet("")
 ```
 
-### 6.8 Conclusion
+### Conclusion
 
 This article covers the primary components of building a graphical user interface for Pyblish, but of course has many things of interest to add.
 
