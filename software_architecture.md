@@ -15,7 +15,7 @@ The integration consists of a server and a series of plug-ins, both of which we 
 
 ### 3.2. Module structure
 
-The the user, Pyblish is an executable they run to publish things. To you, there are many decoupled modules involved in making Pyblish work and in making it maintainable long term.
+To the user, Pyblish is an executable they run to publish things. To you, there are many decoupled modules involved in making Pyblish work and in making it maintainable long term.
 
 Each module is versioned using [Semantic Versioning][semver] and developed independently. Each hosting source code, issue tracker and wiki.
 
