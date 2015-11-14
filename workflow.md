@@ -1,13 +1,16 @@
-
-# 2. Workflow
+# Workflow
 
 Pyblish is designed to be flexible whilst providing as much aid as possible.
 
 Aid is delivered in the form of API and user interface. The API provides the developer with a level of abstraction within which pipeline requirements are to be described. Once described, Pyblish is able to automate and visualise a lot of things for you and your artists.
 
-### 2.1. CVEI
+**Note** It is assumed you have already completed [Learn Pyblish by Example][].
 
-CVEI is an architectural pattern for how to describe a pipeline in terms of publishing and is an acronym for Collection, Validation, Extraction and Integration. It is described and executed in the following order.
+### Development strategy
+
+"CVEI" is an architectural pattern for describing a pipeline in terms of publishing and is an acronym for Collection, Validation, Extraction and Integration.
+
+It is described and executed in the following order.
 
 1. **Collection** is the point at which data from a given environment is parsed and stored for processing by the three subsequent steps. It is here where you, the developer, identify the logical sets of data within an artists working scene that is to become physical files on disk.
 2. **Validation** is where the collected data is analysed for correctness. Failing validation means one or more problems have been found that require an artist's attention and not until the problems have been resolved can processing continue.
@@ -16,13 +19,24 @@ CVEI is an architectural pattern for how to describe a pipeline in terms of publ
 
 It's important to point out that these steps are mere guidelines and that Pyblish triggers whatever you throw at it in any order. But should you choose to mold your definition and understanding of your publishing pipeline in this way you enable yourself and those around you to take advantage of and to share the knowledge and vocabulary of other Pyblishers.
 
-### 2.2. Plug-ins
+### Plug-ins
 
 The way you express yourself through CVEI is through the use of "plug-ins".
 
 The Pyblish API is based around the notion that you write functionality that Pyblish then runs. The order in which plug-ins run is then something you control. Plug-ins are generally written by the technical director, but are also flexible enough to enable the artist to add functionality on-the-fly by simply registering it with Pyblish at run-time.
 
-### 2.3. Communication
+**Example**
+
+```python
+import pyblish.api
+
+class MyPlugin(pyblish.api.Plugin):
+    def process(self):
+        print("Every plug-in subclasses either Plugin "
+              "or subclass of Plugin")
+```
+
+### Communication
 
 It is the technical directors responsibility to identify and program the various conventions found in a pipeline so as to safeguard an artist from producing content that might eventually lead to problems further down the pipeline. The technical director then communicates his definitions with the artist via 3 primary mechanisms.
 
@@ -54,7 +68,7 @@ class MyPlugin(pyblish.api.Plugin):
         assert False is True, "Any kind of Python exception is ok."
 ```
 
-### 2.4. Context
+### Context
 
 Pyblish provides a level of orchestration amongst your plug-ins via the use of a shared "context".
 
@@ -66,23 +80,17 @@ The following is an example of how to access the context.
 
 ```python
 import pyblish.api
-
-class MyPlugin(pyblish.api.Plugin):
-    def process(self, context):
-        print("I have the context: %s" % context)
+context = pyblish.api.Context()
 ```
 
 The context is subclassed from a standard Python list and can be thought of as such, with the addition of a `.data` dictionary in which arbitrary data may be stored and shared amongst plug-ins.
 
 ```python
-import pyblish.api
-
-class MyPlugin(pyblish.api.Plugin):
-    def process(self, context):
-        self.log.info("Publishing from {cwd}".format(**context.data))
+assert isinstance(context, list)
+context.data["globalData"] = 10
 ```
 
-### 2.5. Instance
+### Instance
 
 The final and most important mechanism for orchestrating plug-ins is the [Instance][].
 
@@ -94,19 +102,58 @@ Technically, Instances are also subclassed from the standard Python list in orde
 
 **Example**
 
-The current `instance` is accessed in the same way as the `context`.
+[Instance][]s are created the same way as the [Context][], except it must be given a name.
+
+```python
+import pyblish.api
+instance = pyblish.api.Instance(name="MyInstance")
+```
+
+It is generally always a child of the [Context][], like this.
+
+```python
+import pyblish.api
+context = pyblish.api.Context()
+instance = pyblish.api.Instance(name="MyInstance", parent=context)
+
+# This is a common-enough pattern, that there's a convenience
+# function for it which does exactly what we did above.
+instance = context.create_instance("MyInstance")
+```
+
+### Dependency injection
+
+You generally never have to worry about instantiating the [Context][]. Instead, the [Context][] is instantiated for you at the start of processing and is delivered to plug-ins via something called "dependency injection".
+
+Dependency injection basically means that whatever is required is provided. In this case, when the [Context][] is required in a plug-in, it is provided as a variable. 
+
+The end result is a single, coherent method for you to override in any and all of your plug-ins.
+
+**Example**
 
 ```python
 import pyblish.api
 
-class MyPlugin(pyblish.api.Plugin):
+class MyContextPlugin(pyblish.api.Plugin):
+    def process(self, context):
+        print("I have access to the Context..")
+
+
+class MyInstancePlugin(pyblish.api.Plugin):
     def process(self, instance):
-        self.log.info("Publishing instance {0}".format(instance.name))
+        print("..I have access to the *current* Instance..")
+        
+        
+class MyMultiPlugin(pyblish.api.Plugin):
+    def process(self, context, instance):
+        print("..and I have access to both the Instance and Context.")
 ```
 
-### 2.6. Conditions
+*Dependency injection in Pyblish was inspired by how it is used and implemented in AngularJS. - [Reference](https://github.com/angular/angular.js/wiki/Understanding-Dependency-Injection)*
 
-A final thing to mention about instances is about conditions.
+### Conditions
+
+A final thing to mention about instances is conditions.
 
 ![image](https://cloud.githubusercontent.com/assets/2152766/11087503/bfc6b5fc-8852-11e5-96ba-1d0a4dd92941.png)
 
@@ -154,3 +201,7 @@ pyblish.util.publish()
 # The person is "john"
 # The prop is "door"
 ```
+
+[Instance]: https://github.com/pyblish/pyblish.api/wiki/Instance
+[Context]: https://github.com/pyblish/pyblish.api/wiki/Context
+[Learn Pyblish by Example]: http://forums.pyblish.com/t/learning-pyblish-by-example
