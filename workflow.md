@@ -56,7 +56,7 @@ class MyPlugin(pyblish.api.Plugin):
 
 ### 2.4. Context
 
-Pyblish provides a level of orchestration amongst your plug-ins via the used of shared "context".
+Pyblish provides a level of orchestration amongst your plug-ins via the use of a shared "context".
 
 This object is created at the start of processing of the first plug-in and is passed along from one plug-in to the next. It is via the context that plug-ins may share and exchange information with one another. You can think of the context as a global variable with a lifetime spanning between the start and end of a single publish.
 
@@ -100,8 +100,8 @@ The current `instance` is accessed in the same way as the `context`.
 import pyblish.api
 
 class MyPlugin(pyblish.api.Plugin):
-    def process(self, context):
-        self.log.info("Publishing from {cwd}".format(**context.data))
+    def process(self, instance):
+        self.log.info("Publishing instance {0}".format(instance.name))
 ```
 
 ### 2.6. Conditions
