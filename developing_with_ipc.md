@@ -160,3 +160,4 @@ The result is: 6
 [pyblish-qml/control.py]: https://github.com/pyblish/pyblish-qml/blob/master/pyblish_qml/control.py
 [pyblish-rpc/server.py]: https://github.com/pyblish/pyblish-rpc/blob/master/pyblish_rpc/server.py
 [pyblish-rpc/client.py]: https://github.com/pyblish/pyblish-rpc/blob/master/pyblish_rpc/client.py
+[pyblish-rpc/service.py]: https://github.com/pyblish/pyblish-rpc/blob/master/pyblish_rpc/service.py
