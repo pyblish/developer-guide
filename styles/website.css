@@ -1,18 +1,6 @@
-/*.book .book-body .page-wrapper .page-inner section.normal pre {*/
-/*    background: #F9F9F9;*/
-/*    border: 1px solid #DDD;*/
-/*    border-radius: 5px;*/
-/*    font-size: 15px;*/
-/*    font-weight: 500;*/
-/*    line-height: 14px;*/
-/*    padding: 0.7em;*/
-/*    font-family: "Source Code Pro";*/
-/*}*/
-
 html {
     font-size: 55%;
 }
-
 
 /* Bug-fix
    Lists have 0 margin-bottom, and p has 0 margin-top,
@@ -20,6 +8,11 @@ html {
 .book .book-body .page-wrapper .page-inner section.normal ol,
 .book .book-body .page-wrapper .page-inner section.normal ul {
     margin-bottom: .85em;
+}
+
+.book .book-summary ul.summary li a {
+    padding: 6px 15px;
+    font-size: 0.9em;
 }
 
 .book .book-body .page-wrapper .page-inner section.normal blockquote {
