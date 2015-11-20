@@ -155,6 +155,8 @@ Notice how the controller is exposed as a global variable in QML called `app`. T
 The result is: 6
 ```
 
+<div class="modified-date">{{ file.mtime }}</div>
+
 [pyblish-rpc]: https://github.com/pyblish/pyblish-rpc
 [pyblish-qml]: https://github.com/pyblish/pyblish-qml
 [pyblish-qml/control.py]: https://github.com/pyblish/pyblish-qml/blob/master/pyblish_qml/control.py
