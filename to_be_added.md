@@ -4,3 +4,5 @@
 - Advanced feedback example. Implement model/view.
 - Custom QML GUI from scratch
 - Elaborate on why Pyblish QML is a Client/Server based architecture, like [Gazebo](http://gazebosim.org/).
+
+<div class="modified-date">{{ file.mtime }}</div>
