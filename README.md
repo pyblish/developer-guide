@@ -102,9 +102,11 @@ Developers are encouraged to define, document and deploy their own unique workfl
 
 <br>
 
-[**> Continue Reading**](https://pyblish.gitbooks.io/developer-guide/content/workflow.html)
+**Reading on GitHub?**
 
-Last modification: {{ file.mtime }}
+- [Continue Reading](https://pyblish.gitbooks.io/developer-guide/content/workflow.html)
+
+> {{ file.mtime }}
 
 [maya]: https://github.com/pyblish/pyblish-maya
 [houdini]: https://github.com/pyblish/pyblish-houdini
