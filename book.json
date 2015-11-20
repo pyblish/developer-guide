@@ -7,7 +7,7 @@
         "epub": "styles/website.css"
     },
     "plugins": [
-        "anchors"
+        "-anchors"
     ],
     "pluginsConfig": {}
 }
