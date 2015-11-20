@@ -86,6 +86,8 @@ If it did, there's a chance you have a server running in the background that isn
 
 Have a look in your process explorer for a Python process and kill it.
 
+<div class="modified-date">{{ file.mtime }}</div>
+
 [1]: https://github.com/pyblish/pyblish-qml/blob/master/pyblish_qml/app.py
 [Plugin]: https://github.com/pyblish/pyblish.api/wiki/Plugin
 [python-qt5]: https://github.com/pyqt/python-qt5
