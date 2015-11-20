@@ -106,7 +106,7 @@ Developers are encouraged to define, document and deploy their own unique workfl
 
 - [Continue Reading](https://pyblish.gitbooks.io/developer-guide/content/workflow.html)
 
-> {{ file.mtime }}
+<div class="date">{{ file.mtime }}</div>
 
 [maya]: https://github.com/pyblish/pyblish-maya
 [houdini]: https://github.com/pyblish/pyblish-houdini
