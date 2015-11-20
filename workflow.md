@@ -202,6 +202,8 @@ pyblish.util.publish()
 # The prop is "door"
 ```
 
+<div class="modified-date">{{ file.mtime }}</div>
+
 [Instance]: https://github.com/pyblish/pyblish.api/wiki/Instance
 [Context]: https://github.com/pyblish/pyblish.api/wiki/Context
 [Learn Pyblish by Example]: http://forums.pyblish.com/t/learning-pyblish-by-example
