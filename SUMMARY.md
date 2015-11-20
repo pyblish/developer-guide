@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-* [Overview](overview.md)
 * [Workflow](workflow.md)
 * [Software Architecture](software_architecture.md)
 * [User Interface](user_interface.md)
