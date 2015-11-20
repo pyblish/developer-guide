@@ -265,4 +265,6 @@ For final reference, here is again the full source code of this example.
 
 - https://gist.github.com/mottosso/1443b177e15710ee36e4
 
+<div class="modified-date">{{ file.mtime }}</div>
+
 [pyblish-qml]: https://github.com/pyblish/pyblish-qml
