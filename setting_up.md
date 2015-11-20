@@ -110,4 +110,6 @@ cd pythondev\pyblish
 python run_testsuite.py
 ```
 
+<div class="modified-date">{{ file.mtime }}</div>
+
 [pyblish-qml]: https://github.com/pyblish/pyblish-qml
