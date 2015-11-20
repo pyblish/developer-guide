@@ -9,5 +9,10 @@
     "plugins": [
         "ga"
     ],
-    "pluginsConfig": {}
+    "pluginsConfig": {
+        "ga": {
+            "token": "UA-54795291-2",
+            "configuration": "auto"
+        }
+    }
 }
