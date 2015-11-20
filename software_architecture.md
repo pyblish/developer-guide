@@ -23,23 +23,21 @@ Each module is versioned using [Semantic Versioning][semver] and developed indep
 
 Here are some examples of modules and packages.
 
-
-
-|                | Module              | Package          | Description
-|:---------------|:--------------------|:-----------------|:-----------
-| ![][package]   | pyblish-win         |                  | Officially supported modules and binaries for Windows (package)
-| ![][package]   | pyblish-linux       |                  | Officially supported modules and binaries for Linux (package)
-| ![][package]   | pyblish-osx         |                  | Officially supported modules and binaries for Linux (package)
-| ![][package]   | pyblish-x           | pyblish-win,<br>pyblish-linux, <br>pyblish-osx | Officially supported modules (package)
-| ![][module]    | pyblish             | pyblish-x        | Core module, the heart of Pyblish.
-| ![][module]    | pyblish-qml         | pyblish-x        | User interface module, the face of Pyblish.
-| ![][module]    | pyblish-tray        | pyblish-x        | The Pyblish control panel
-| ![][module]    | pyblish-rpc         | pyblish-x        | Communication bridge between the core and user interface of Pyblish.
-| ![][module]    | pyblish-integration | pyblish-x        | Supporting module for [pyblish-rpc][]
-| ![][module]    | pyblish-maya        | pyblish-x        | Integration module for Autodesk Maya
-| ![][module]    | pyblish-houdini     | pyblish-x        | Integration module for SideFx Houdini
-| ![][module]    | pyblish-ci          |                  | Continuous integration server for Pyblish.
-| ![][module]    | pyblish-event       |                  | Reference implementation of a cloud-based event monitor.
+|                | Module                  | Package          | Description
+|:---------------|:------------------------|:-----------------|:-----------
+| ![][package]   | [pyblish-win][]         |                  | Officially supported modules and binaries for Windows (package)
+| ![][package]   | [pyblish-linux][]       |                  | Officially supported modules and binaries for Linux (package)
+| ![][package]   | [pyblish-osx][]         |                  | Officially supported modules and binaries for Linux (package)
+| ![][package]   | [pyblish-x][]           | pyblish-win, pyblish-linux, pyblish-osx | Officially supported modules (package)
+| ![][module]    | [pyblish][]             | pyblish-x        | Core module, the heart of Pyblish.
+| ![][module]    | [pyblish-qml][]         | pyblish-x        | User interface module, the face of Pyblish.
+| ![][module]    | [pyblish-tray][]        | pyblish-x        | The Pyblish control panel
+| ![][module]    | [pyblish-rpc][]         | pyblish-x        | Communication bridge between the core and user interface of Pyblish.
+| ![][module]    | [pyblish-integration][] | pyblish-x        | Supporting module for [pyblish-rpc][]
+| ![][module]    | [pyblish-maya][]        | pyblish-x        | Integration module for Autodesk Maya
+| ![][module]    | [pyblish-houdini][]     | pyblish-x        | Integration module for SideFx Houdini
+| ![][module]    | [pyblish-ci][]          |                  | Continuous integration server for Pyblish.
+| ![][module]    | [pyblish-event][]       |                  | Reference implementation of a cloud-based event monitor.
 
 ### 3.3. Source structure
 
@@ -67,19 +65,6 @@ And finally, the most relevant files in terms of developing for Pyblish:
 |:--------------|:--------------------|---------------------
 | ![][file]     | [plugin.py][]       | Plug-in definition, registration and discovery on disk.
 | ![][file]     | [logic.py][]        | The brains of processing.
-
-[plugins]: https://github.com/pyblish/pyblish/tree/master/pyblish/plugins
-[vendor]: https://github.com/pyblish/pyblish/tree/master/pyblish/vendor
-[\_\_init__.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/__init__.py
-[\_\_main__.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/__main__.py
-[api.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/api.py
-[cli.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/cli.py
-[compat.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/compat.py
-[lib.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/lib.py
-[util.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/util.py
-[version.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/version.py
-[plugin.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/plugin.py
-[logic.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/logic.py
 
 ### 3.4 Processing Pipeline
 
@@ -116,15 +101,36 @@ The [results][] dictionary is appended to a list within the [Context][] - access
 [package]: https://cloud.githubusercontent.com/assets/2152766/11087037/bd4964ea-884e-11e5-928a-3e3c84f37662.png
 [module]: https://cloud.githubusercontent.com/assets/2152766/11087051/d2fb2620-884e-11e5-940a-f57c3265f8fc.png
 
+[plugins]: https://github.com/pyblish/pyblish/tree/master/pyblish/plugins
+[vendor]: https://github.com/pyblish/pyblish/tree/master/pyblish/vendor
+[\_\_init__.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/__init__.py
+[\_\_main__.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/__main__.py
+[api.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/api.py
+[cli.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/cli.py
+[compat.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/compat.py
+[lib.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/lib.py
+[util.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/util.py
+[version.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/version.py
+[plugin.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/plugin.py
+[logic.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/logic.py
 
-[maya]: https://github.com/pyblish/pyblish-maya
-[houdini]: https://github.com/pyblish/pyblish-houdini
-[nuke]: https://github.com/pyblish/pyblish-nuke
-[hiero]: https://github.com/pyblish/pyblish-hiero
-[magenta]: https://github.com/pyblish/pyblish-magenta
-[napoleon]: https://github.com/pyblish/pyblish-napoleon
+[pyblish]: https://github.com/pyblish/pyblish
+[pyblish-maya]: https://github.com/pyblish/pyblish-maya
+[pyblish-houdini]: https://github.com/pyblish/pyblish-houdini
+[pyblish-nuke]: https://github.com/pyblish/pyblish-nuke
+[pyblish-hiero]: https://github.com/pyblish/pyblish-hiero
+[pyblish-magenta]: https://github.com/pyblish/pyblish-magenta
+[pyblish-napoleon]: https://github.com/pyblish/pyblish-napoleon
 [pyblish-qml]: https://github.com/pyblish/pyblish-qml
 [pyblish-rpc]: https://github.com/pyblish/pyblish-rpc
+[pyblish-win]: https://github.com/pyblish/pyblish-win
+[pyblish-linux]: https://github.com/pyblish/pyblish-linux
+[pyblish-osx]: https://github.com/pyblish/pyblish-osx
+[pyblish-x]: https://github.com/pyblish/pyblish-x
+[pyblish-tray]: https://github.com/pyblish/pyblish-tray
+[pyblish-integration]: https://github.com/pyblish/pyblish-integration
+[pyblish-ci]: https://github.com/pyblish/pyblish-ci
+[pyblish-event]: https://github.com/pyblish/pyblish-event
 
 [Context]: https://github.com/pyblish/pyblish.api/wiki/Context
 [Instance]: https://github.com/pyblish/pyblish.api/wiki/Instance
