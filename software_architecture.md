@@ -95,6 +95,7 @@ During processing, the context may be extended with [Instance][]'s. These may be
 
 The [results][] dictionary is appended to a list within the [Context][] - accessible as `data["results"]` - and captures information regarding the order in which plug-ins and instances are processed and all messages therein. It is primarily intended for graphical user interfaces to visualise the events that occur during processing, but is open to developers to produce visualisations of their own. For example you may be interested in storing the results in a log somewhere on the cloud for auditing purposes such that one may "go back in time" and inspect what actually went on back then.
 
+<div class="modified-date">{{ file.mtime }}</div>
 
 [file]: https://cloud.githubusercontent.com/assets/2152766/11087076/fb636500-884e-11e5-836c-a78d116dd9d5.png
 [folder]: https://cloud.githubusercontent.com/assets/2152766/11087071/f1c6172c-884e-11e5-87b2-d2f502a01961.png
