@@ -27,8 +27,8 @@ It will..
 Find out..
 
 - [**More about coverage**](https://coverage.readthedocs.org/en/coverage-4.0.2/)
-- [**More about automated testing on Linux**](travis-ci.org)
-- [**More about automated testing on Windows**](www.appveyor.com)
+- [**More about automated testing on Linux**](http://travis-ci.org)
+- [**More about automated testing on Windows**](http://www.appveyor.com)
 
 ![image](https://cloud.githubusercontent.com/assets/2152766/11125629/efab66d0-8962-11e5-8676-c51943656d1e.png)
 
