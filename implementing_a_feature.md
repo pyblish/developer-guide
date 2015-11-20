@@ -251,5 +251,6 @@ When making commits, here are a few guidelines for you to think about.
 - Keep commits focused. Don't touch code not relevant to 1 specific problem at a time.
 - Keep commits few. One meaningful commit is better than three haphazard ones.
 - Describe your commits. You should be able to browse a listing of commits and understand what is changing without diving into the code.
-- 
+ 
+
 <div class="modified-date">{{ file.mtime }}</div>
