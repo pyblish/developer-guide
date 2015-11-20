@@ -63,6 +63,8 @@ And here is some recommended reading of particular interest.
 
 > Break over
 
+<div class="modified-date">{{ file.mtime }}</div>
+
 [pyblish-qml]: https://github.com/pyblish/pyblish-qml
 [pyblish-rpc]: https://github.com/pyblish/pyblish-rpc
 
