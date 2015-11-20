@@ -30,7 +30,7 @@ Here are some examples of modules and packages.
 | ![][package]   | pyblish-win         |                  | Officially supported modules and binaries for Windows (package)
 | ![][package]   | pyblish-linux       |                  | Officially supported modules and binaries for Linux (package)
 | ![][package]   | pyblish-osx         |                  | Officially supported modules and binaries for Linux (package)
-| ![][package]   | pyblish-x           | pyblish-win, pyblish-linux, pyblish-osx | Officially supported modules (package)
+| ![][package]   | pyblish-x           | pyblish-win,<br>pyblish-linux, pyblish-osx | Officially supported modules (package)
 | ![][module]    | pyblish             | pyblish-x        | Core module, the heart of Pyblish.
 | ![][module]    | pyblish-qml         | pyblish-x        | User interface module, the face of Pyblish.
 | ![][module]    | pyblish-tray        | pyblish-x        | The Pyblish control panel
