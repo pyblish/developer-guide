@@ -2,6 +2,19 @@
 
 In this example we're going to write a graphical user interface from scratch. It will be simple, but should be enough to illustrate how [pyblish-qml][] works.
 
+| **Part**        | **Summary**
+|:----------------|:------------------
+| [Setup](#setup)                   | Get an executable skeleton up and running
+| [Layout](#layout)                 | Finalise the look
+| [Refresh](#refresh)               | Communicate with Pyblish
+| [Mocks](#mocks)                   | Fake some contact
+| [Event handlers](#event-handlers) | Interact with Pyblish
+| [Feedback](#feedback)             | Communicate with the user
+
+<br>
+<br>
+<br>
+
 ### Getting started
 
 Here is the UI we are going to develop.
