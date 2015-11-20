@@ -41,3 +41,5 @@ Also note that you are welcome to submit pull-requests that you don't yet expect
 ### The aftermath
 
 From here, enjoy some peace and quiet and prepare for comments.
+
+<div class="modified-date">{{ file.mtime }}</div>
