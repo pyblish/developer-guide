@@ -21,3 +21,10 @@ html {
     border-left: 5px solid #F1F1F1;
     padding-left: 8px;
 }
+
+.modified-date {
+    color: #ddd;
+    text-align: right;
+    padding-top: 50px;
+    font-size: 0.8em;
+}
