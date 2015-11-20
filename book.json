@@ -6,8 +6,6 @@
         "mobi": "styles/website.css",
         "epub": "styles/website.css"
     },
-    "plugins": [
-        "-anchors"
-    ],
+    "plugins": [],
     "pluginsConfig": {}
 }
