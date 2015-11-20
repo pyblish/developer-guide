@@ -2,6 +2,11 @@
 
 A maintainers and feature developers guide to Pyblish.
 
+**See also**
+
+- [Tutorial](http://forums.pyblish.com/t/learning-pyblish-by-example/108?u=marcus)
+- [Discussion forums](http://forums.pyblish.com/t/developer-guide)
+
 <br>
 <br>
 <br>
