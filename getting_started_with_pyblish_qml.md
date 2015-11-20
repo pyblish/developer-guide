@@ -76,9 +76,9 @@ Running the publish will excersize all available plug-ins, including yours, and 
 
 When running the application in this way, technically you are running both a client and the server. In the next section, we will talk more about how Pyblish QML runs in terms of inter-process communication, but keep in mind that you might encounter some of these issues as you develop.
 
-> I added to mocking.py, but it isn't showing up!
+> Q: I added to mocking.py, but it isn't showing up!
 
-Try editing mocking.py in such a way that it is an invalid Python source file, such as by referencing a non-existant variable, or just by removing everything inside of it, and run the UI again.
+A: Try editing mocking.py in such a way that it is an invalid Python source file, such as by referencing a non-existant variable, or just by removing everything inside of it, and run the UI again.
 
 Does that work?
 
