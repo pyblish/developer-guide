@@ -24,21 +24,22 @@ Each module is versioned using [Semantic Versioning][semver] and developed indep
 Here are some examples of modules and packages.
 
 
-|                | Module             | Description
-|:---------------|:-------------------|:-----------
-| ![][package]   | pyblish-win        | Officially supported modules and binaries for Windows (package)
-| ![][package]   | pyblish-linux      | Officially supported modules and binaries for Linux (package)
-| ![][package]   | pyblish-osx        | Officially supported modules and binaries for Linux (package)
-| ![][package]   | pyblish-x          | Officially supported modules (package)
-| ![][module]    | pyblish            | Core module, the heart of Pyblish.
-| ![][module]    | pyblish-qml        | User interface module, the face of Pyblish.
-| ![][module]    | pyblish-tray       | The Pyblish control panel
-| ![][module]    | pyblish-rpc        | Communication bridge between the core and user interface of Pyblish.
-| ![][module]    | pyblish-integration| Supporting module for [pyblish-rpc][]
-| ![][module]    | pyblish-maya       | Integration module for Autodesk Maya
-| ![][module]    | pyblish-houdini    | Integration module for SideFx Houdini
-| ![][module]    | pyblish-ci         | Continuous integration server for Pyblish.
-| ![][module]    | pyblish-event      | Reference implementation of a cloud-based event monitor.
+
+|                | Module              | Package          | Description
+|:---------------|:--------------------|:-----------------|:-----------
+| ![][package]   | pyblish-win         |                  | Officially supported modules and binaries for Windows (package)
+| ![][package]   | pyblish-linux       |                  | Officially supported modules and binaries for Linux (package)
+| ![][package]   | pyblish-osx         |                  | Officially supported modules and binaries for Linux (package)
+| ![][package]   | pyblish-x           | pyblish-win, pyblish-linux, pyblish-osx | Officially supported modules (package)
+| ![][module]    | pyblish             | pyblish-x        | Core module, the heart of Pyblish.
+| ![][module]    | pyblish-qml         | pyblish-x        | User interface module, the face of Pyblish.
+| ![][module]    | pyblish-tray        | pyblish-x        | The Pyblish control panel
+| ![][module]    | pyblish-rpc         | pyblish-x        | Communication bridge between the core and user interface of Pyblish.
+| ![][module]    | pyblish-integration | pyblish-x        | Supporting module for [pyblish-rpc][]
+| ![][module]    | pyblish-maya        | pyblish-x        | Integration module for Autodesk Maya
+| ![][module]    | pyblish-houdini     | pyblish-x        | Integration module for SideFx Houdini
+| ![][module]    | pyblish-ci          |                  | Continuous integration server for Pyblish.
+| ![][module]    | pyblish-event       |                  | Reference implementation of a cloud-based event monitor.
 
 ### 3.3. Source structure
 
