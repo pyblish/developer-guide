@@ -21,4 +21,5 @@ Passing only `context` causes a plug-in to process only the context, but passing
 
 Both the implementation and behavior is both surprising and un-Pythonic. The goal is to make this more Pythonic and less surprising.
 
+
 <div class="modified-date">{{ file.mtime }}</div>
