@@ -15,8 +15,8 @@
        * [Setting up on Windows](setting_up.md)
        * [Implementing a feature](implementing_a_feature.md)
        * [Creating a pull-request](creating_a_pull-request.md)
+   * [Pyblish in 200 lines](pyblish_in_200_lines.md)
    * [Writing a UI](writing_a_ui.md)
-* [Pyblish in 200 lines](pyblish_in_200_lines.md)
 * [Suggestions for Improvements](suggestions_for_improvements.md)
 * [To be added](to_be_added.md)
 
