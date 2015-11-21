@@ -3,6 +3,7 @@
 * [Introduction](README.md)
 * [Workflow](workflow.md)
 * [Software Architecture](software_architecture.md)
+   * Pyblish in 200 lines
 * [User Interface](user_interface.md)
    * [Why QML?](why_qml.md)
    * [Getting started with Pyblish QML](getting_started_with_pyblish_qml.md)
