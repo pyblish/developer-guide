@@ -1,9 +1,9 @@
 
-# 3. Software Architecture
+# Software Architecture
 
 Now that we know more about the concepts in Pyblish, let's take a closer look at it fits together in technical terms.
 
-### 3.1. Overview
+### Overview
 
 From afar, Pyblish consists of three major components.
 
@@ -13,7 +13,7 @@ The core is designed and developed in isolation and runs without supporting libr
 
 The integration consists of a server and a series of plug-ins, both of which we will talk more about later.
 
-### 3.2. Module structure
+### Module structure
 
 To the user, Pyblish is an executable they run to publish things. To you, there are many decoupled modules involved in making Pyblish work and in making it maintainable long term.
 
@@ -39,7 +39,7 @@ Here are some examples of modules and packages.
 | ![][module]    | [pyblish-ci][]          |                  | Continuous integration server for Pyblish.
 | ![][module]    | [pyblish-event][]       |                  | Reference implementation of a cloud-based event monitor.
 
-### 3.3. Source structure
+### Source structure
 
 The following is the file structure of the core Pyblish module.
 
@@ -66,7 +66,7 @@ And finally, the most relevant files in terms of developing for Pyblish:
 | ![][file]     | [plugin.py][]       | Plug-in definition, registration and discovery on disk.
 | ![][file]     | [logic.py][]        | The brains of processing.
 
-### 3.4 Processing Pipeline
+### Processing Pipeline
 
 As soon as the user hits "publish", three things happen.
 
