@@ -3,7 +3,6 @@
 * [Introduction](README.md)
 * [Workflow](workflow.md)
 * [Software Architecture](software_architecture.md)
-   * [Pyblish in 200 lines](pyblish_in_200_lines.md)
 * [User Interface](user_interface.md)
    * [Why QML?](why_qml.md)
    * [Getting started with Pyblish QML](getting_started_with_pyblish_qml.md)
@@ -17,6 +16,7 @@
        * [Implementing a feature](implementing_a_feature.md)
        * [Creating a pull-request](creating_a_pull-request.md)
    * [Writing a UI](writing_a_ui.md)
+* [Pyblish in 200 lines](pyblish_in_200_lines.md)
 * [Suggestions for Improvements](suggestions_for_improvements.md)
 * [To be added](to_be_added.md)
 
