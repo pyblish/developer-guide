@@ -33,6 +33,7 @@ The following represents Pyblish at it's core, no fuzz. It runs directly in Pyth
 - Stopping on failed validation
 - .data[]
 - Actions
+- Plug-in discovery
 
 > The """docstrings""" and `#` comments are for you.
 
