@@ -2,9 +2,9 @@
 
 > Unfinished
 
-Pyblish is a tiny framework. Even though it consists of over 40 individual Git repositories, the actual mechanism is small and nimble.
+Pyblish is a tiny framework. Even though it consists of over 40 individual Git repositories, only one of them represents the actual mechanism and is tiny enough to fully understand.
 
-What better way for me to reflect this and for you to understand this than to illustrate how it all fits together in a single block of code?
+What better way for me to reflect, and for you to understand this, than to demonstrate how it all fits together in a single block of code?
 
 <br>
 <br>
@@ -16,7 +16,7 @@ The following represents Pyblish at it's core, without fuzz.
 
 **Including**
 
-- An accurate representation of actual module and class hierarchy
+- An accurate representation of module and class hierarchy
 - The dependency injection mechanism
 - Processing
 - CVEI
@@ -215,7 +215,12 @@ print(json.dumps(results, indent=4))
 <br>
 <br>
 
-### Key points
+# Key points
 
-1. There are 2 `process()`
-2. Notice how `Provider` is instantiated, injected and then used.
+Once you've run the above code, absorbed it's output, let's turn our attention to some of the novelties in it.
+
+#### 1. There are 2 `process()`
+
+
+
+#### 2. Notice how `Provider` is instantiated, injected and then used.
