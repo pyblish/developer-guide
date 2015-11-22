@@ -29,7 +29,8 @@ The following represents Pyblish at it's core, without fuzz.
 - Stopping on failed validation
 - Actions
 
-{%ace edit=true, lang='python'%}
+
+```python
 import json
 import types
 import inspect
@@ -208,7 +209,7 @@ print(json.dumps(results, indent=4))
 #         "error": null,
 #         ...
 
-{%endace%}
+```
 
 <br>
 <br>
