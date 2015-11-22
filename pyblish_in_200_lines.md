@@ -6,11 +6,16 @@ Pyblish is a tiny framework. Even though it consists of over 40 individual Git r
 
 What better way for me to reflect, and for you to understand this, than to demonstrate how it all fits together in a single block of code?
 
+| **Part**                  | **Description**
+|:--------------------------|:-------------
+| [Code](#code)             | 200 lines of standalone code representing the Pyblish core.
+| [Breakdown](#breakdown)   | Highlights and describes some of the higher level lessons to take away from this article.
+
 <br>
 <br>
 <br>
 
-### 200 lines
+### Code
 
 The following represents Pyblish at it's core, without fuzz.
 
@@ -25,8 +30,8 @@ The following represents Pyblish at it's core, without fuzz.
 
 **Excluding**
 
-- .data
 - Stopping on failed validation
+- .data[]
 - Actions
 
 
@@ -115,11 +120,13 @@ class ValidateInstances(Validator):
         self.log.info("Processing %s" % instance)
 
 
-# Ordering remains unchanged
+# Ordering
 plugins = [ValidateInstances, CollectInstances]
 plugins = sorted(plugins, key=lambda item: item.order)
 
 
+# Primary processing function.
+# This function runs your plug-in and produces a `result` dictionary.
 def process(plugin, context, instance):
     print("plugin.process running..")
     print("Individually processing \"%s\"" % (instance or "Context"))
@@ -152,7 +159,9 @@ def process(plugin, context, instance):
 pyblish.plugin.process = process
 
 
-def process(plugins, context):
+# Logical processing function.
+# This function delegates processing the appropriate plug-in/instance pair.
+def process(func, plugins, context):
     print("logic.process running..")
 
     for plugin in plugins:
@@ -160,7 +169,7 @@ def process(plugins, context):
 
         # Run once
         if not plugin.__instanceEnabled__:
-            yield pyblish.plugin.process(
+            yield func(
                 plugin=plugin,
                 context=context,
                 instance=None)
@@ -168,7 +177,7 @@ def process(plugins, context):
         # Run per instance
         else:
             for instance in context:
-                yield pyblish.plugin.process(
+                yield func(
                     plugin=plugin,
                     context=context,
                     instance=instance)
@@ -179,6 +188,7 @@ pyblish.logic.process = process
 # Example usage
 context = list()
 processor = pyblish.logic.process(
+    func=pyblish.plugin.process,
     plugins=plugins,
     context=context
 )
@@ -215,12 +225,17 @@ print(json.dumps(results, indent=4))
 <br>
 <br>
 
-# Key points
+### Breakdown
 
 Once you've run the above code, absorbed it's output, let's turn our attention to some of the novelties in it.
 
-#### 1. There are 2 `process()`
+1. There are 2 `process()`
+2. Notice how `Provider` is instantiated, injected and then used.
 
+`plugin.process()` is the first runner up. It handles actually running your plug-in with either an [Instance][] or the full [Context][]. It isn't particularly interesting, except for maybe how it generates the [result][] dictionary, which is later [validated][1] by [json-schema][2] during interaction with [pyblish-rpc][]
 
-
-#### 2. Notice how `Provider` is instantiated, injected and then used.
+[1]: https://github.com/pyblish/pyblish-rpc/tree/master/pyblish_rpc/schema
+[2]: http://json-schema.org/
+[result]: https://github.com/pyblish/pyblish.api/wiki/result
+[Instance]: https://github.com/pyblish/pyblish.api/wiki/Instance
+[Context]: https://github.com/pyblish/pyblish.api/wiki/Context
