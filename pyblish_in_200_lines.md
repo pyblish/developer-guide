@@ -243,7 +243,7 @@ print(json.dumps(results, indent=4))
 
 Once you've run the above code, absorbed it's output, let's turn our attention to some of the novelties in it.
 
-1. There are 2 `process()` function.
+1. There are 2 `process()` functions.
 2. Notice how `Provider` is instantiated, injected and then used.
 
 `plugin.process()` is the first runner up. It handles actually running your plug-in with either an [Instance][] or the full [Context][]. It isn't particularly interesting (except for maybe how it generates the [result][] dictionary, which is later [validated][1] by [json-schema][2] during interaction with [pyblish-rpc][]).
