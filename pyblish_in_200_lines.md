@@ -1,7 +1,5 @@
 # Pyblish in 200 lines
 
-> Unfinished
-
 Pyblish is a tiny framework. Even though it consists of over 40 individual Git repositories, only one of them represents the actual mechanism and is tiny enough to fully understand.
 
 What better way for me to reflect, and for you to understand this, than to demonstrate how it all fits together in a single block of code?
@@ -17,7 +15,9 @@ What better way for me to reflect, and for you to understand this, than to demon
 
 ### Code
 
-The following represents Pyblish at it's core, without fuzz.
+The following represents Pyblish at it's core, no fuzz. It runs directly in Python with no dependencies.
+
+- [Code as GitHub Gist](https://gist.github.com/mottosso/9b28156f3b077e7048c8)
 
 **Including**
 
