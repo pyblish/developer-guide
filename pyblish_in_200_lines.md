@@ -90,7 +90,7 @@ class Provider(object):
 
     Available arguments to a plug-ins `process()` method
     are injected here and later passed to the function via `invoke()`.
-    
+
     Example
         >>> def function(name):
         ...     print(name)
@@ -200,39 +200,42 @@ pyblish.logic.process = process
 
 
 # Example usage
-context = list()
-processor = pyblish.logic.process(
-    func=pyblish.plugin.process,
-    plugins=plugins,
-    context=context
-)
+def publish():
+    context = list()
+    processor = pyblish.logic.process(
+        func=pyblish.plugin.process,
+        plugins=plugins,
+        context=context
+    )
+    
+    print("Starting..")
+    results = list()
+    for result in processor:
+        results.append(result)
+    
+    print("\nFinished, printing results")
+    print(json.dumps(results, indent=4))
 
-print("Starting..")
-results = list()
-for result in processor:
-    results.append(result)
 
-print("\nFinished, printing results")
-print(json.dumps(results, indent=4))
-
-# Starting..
-# logic.process running..
-# Processing plug-in: <class '__main__.CollectInstances'>
-# plugin.process running..
-# Individually processing "Context"
-# Processing plug-in: <class '__main__.ValidateInstances'>
-# plugin.process running..
-# Individually processing "instance1"
-# plugin.process running..
-# Individually processing "instance2"
-
-# Finished, printing results
-# [
-#     {
-#         "instance": null,
-#         "error": null,
-#         ...
-
+if __name__ == "__main__":
+    publish()
+    # Starting..
+    # logic.process running..
+    # Processing plug-in: <class '__main__.CollectInstances'>
+    # plugin.process running..
+    # Individually processing "Context"
+    # Processing plug-in: <class '__main__.ValidateInstances'>
+    # plugin.process running..
+    # Individually processing "instance1"
+    # plugin.process running..
+    # Individually processing "instance2"
+    
+    # Finished, printing results
+    # [
+    #     {
+    #         "instance": null,
+    #         "error": null,
+    #         ...
 ```
 
 <br>
