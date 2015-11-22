@@ -180,12 +180,11 @@ def refresh(self):
     self.plugin_list.clear()
     self.instance_list.clear()
 
-    plugins = pyblish.api.discover()
     for plugin in pyblish.api.discover():
         item = QtGui.QListWidgetItem(plugin.__name__)
         self.plugin_list.addItem(item)
 
-    context = pyblish.util.collect(plugins=plugins)
+    context = pyblish.util.collect()
     for instance in context:
         item = QtGui.QListWidgetItem(instance.data["name"])
         self.instance_list.addItem(item)
