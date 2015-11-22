@@ -29,15 +29,17 @@ The following represents Pyblish at it's core, without fuzz.
 - Stopping on failed validation
 - Actions
 
+{%ace edit=true, lang='c_cpp'%}
+// This is a hello world program for C.
+#include <stdio.h>
 
-```python
-"""Core behavior of Pyblish
+int main(){
+  printf("Hello World!");
+  return 1;
+}
+{%endace%}
 
-Included:
-Missing:
-
-"""
-
+{%ace edit=true, lang='c_cpp'%}
 import json
 import types
 import inspect
@@ -216,7 +218,7 @@ print(json.dumps(results, indent=4))
 #         "error": null,
 #         ...
 
-```
+{%endace%}
 
 <br>
 <br>
