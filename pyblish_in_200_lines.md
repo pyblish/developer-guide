@@ -34,6 +34,7 @@ The following represents Pyblish at it's core, without fuzz.
 - .data[]
 - Actions
 
+> The """docstrings""" and `#` comments are for you.
 
 ```python
 import json
@@ -84,10 +85,23 @@ Extractor = type("Extractor", (Plugin,), {"order": 2})
 Integrator = type("Integrator", (Plugin,), {"order": 3})
 
 
-# The dependency-injection mechanism.
-# Available arguments to a plug-ins `process()` method
-# as injected here and later passed to the function via `invoke()`.
 class Provider(object):
+    """The dependency-injection mechanism
+
+    Available arguments to a plug-ins `process()` method
+    are injected here and later passed to the function via `invoke()`.
+    
+    Example
+        >>> def function(name):
+        ...     print(name)
+        ...
+        >>> provider = Provider()
+        >>> provider.inject("name", "Marcus")
+        >>> provider.invoke(function)
+        "Marcus"
+
+    """
+
     def __init__(self):
         self._services = {}
 
@@ -229,13 +243,35 @@ print(json.dumps(results, indent=4))
 
 Once you've run the above code, absorbed it's output, let's turn our attention to some of the novelties in it.
 
-1. There are 2 `process()`
+1. There are 2 `process()` function.
 2. Notice how `Provider` is instantiated, injected and then used.
 
-`plugin.process()` is the first runner up. It handles actually running your plug-in with either an [Instance][] or the full [Context][]. It isn't particularly interesting, except for maybe how it generates the [result][] dictionary, which is later [validated][1] by [json-schema][2] during interaction with [pyblish-rpc][]
+`plugin.process()` is the first runner up. It handles actually running your plug-in with either an [Instance][] or the full [Context][]. It isn't particularly interesting (except for maybe how it generates the [result][] dictionary, which is later [validated][1] by [json-schema][2] during interaction with [pyblish-rpc][]).
+
+What is interesting however is the other `process()` function.
+
+`logic.process()` is the first responder to publishing. It takes the available plug-ins and instances and delegates them in pairs `plugin.process`.
+
+![image](https://cloud.githubusercontent.com/assets/2152766/11323548/867f318a-910c-11e5-8315-02b88322e0b4.png)
+
+One thing to note here is that `logic.process` takes as its first argument a function to use for processing. This function is `plugin.process`, but only under ideal circumstances. It can't do that, for example, when running remotely, such as with [pyblish-qml][].
+
+In the case of running remotely, `plugin.process` is replaced with an external function that is delegates the process to [pyblish-rpc][], which in turn runs `plugin.process` on the remote machine.
+
+**See here for an example of how this works**
+
+- [pyblish-qml/control.py](https://github.com/pyblish/pyblish-qml/blob/8d897c343fc7f31c868a6680a11f84dbe25a19f0/pyblish_qml/control.py#L566)
+
+Dependency injection is the next item of interest. It isn't Pythonic, but it is very simple. Have a gander at its docstring and try it out for yourself to appreciate just how simple, yet flexible it is.
+
+This mechanism was inspired by its use and implementation in the JavaScript framework AngularJS.
+
+- [Reference](https://github.com/angular/angular.js/wiki/Understanding-Dependency-Injection)
 
 [1]: https://github.com/pyblish/pyblish-rpc/tree/master/pyblish_rpc/schema
 [2]: http://json-schema.org/
 [result]: https://github.com/pyblish/pyblish.api/wiki/result
 [Instance]: https://github.com/pyblish/pyblish.api/wiki/Instance
 [Context]: https://github.com/pyblish/pyblish.api/wiki/Context
+[pyblish-rpc]: https://github.com/pyblish/pyblish-rpc
+[pyblish-qml]: https://github.com/pyblish/pyblish-qml
