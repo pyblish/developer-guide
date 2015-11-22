@@ -15,7 +15,7 @@ What better way for me to reflect, and for you to understand this, than to demon
 
 ### Code
 
-The following represents Pyblish at it's core, no fuzz. It runs directly in Python with no dependencies.
+The following represents Pyblish at it's core, no fuzz. It runs directly in Python with no dependencies, in 200 lines of code or less, including comments.
 
 - [Code as GitHub Gist](https://gist.github.com/mottosso/9b28156f3b077e7048c8)
 
