@@ -1,5 +1,7 @@
 # Communicating with the UI
 
+> Unfinished
+
 As mentioned previously, the UI is already set-up to listen on port `9090` so all we need to do in order to speak with it is connect.
 
 > Ensure you have either a host or [pyblish-tray][] already running before attempting this.
@@ -14,12 +16,10 @@ The port number typically is passed from a host such that the UI knows with whom
 
 You can also use the convenience function from within a host provided by the [pyblish-qml][] module.
 
-For example, running this from within Maya will display [pyblish-qml][] for this running instance of Maya. Exactly like if you were to press "Publish" from the file-menu, or call `pyblish_maya.show()`.
-
 ```python
 from pyblish_qml import client
 proxy = client.proxy()
-proxy.show()
+proxy.show(9001)
 ```
 
 The convenience function doesn't need a port number, as it will use the one stored in the environment variable `CLIENT_PORT`, which represents the port number at which the running host is listening.
