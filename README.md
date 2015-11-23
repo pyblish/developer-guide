@@ -101,12 +101,20 @@ Some examples include..
 Developers are encouraged to define, document and deploy their own unique workflows in the form of extensions, and share them with the world. This way, the efforts made by one can benefit all which ultimately makes our industry a better place to be.
 
 <div id="github">
+
 <br>
+<br>
+<br>
+
 <a target="_blank" href="https://pyblish.gitbooks.io/developer-guide/content/workflow.html">
 Continue Reading
 </a>
 <div>
+
 <br>
+<br>
+<br>
+
 <div class="modified-date">{{ file.mtime }}</div>
 
 [pyblish-maya]: https://github.com/pyblish/pyblish-maya
