@@ -29,7 +29,7 @@ Pyblish is an analytics and automation framework developed in Python for the vis
 
 It was designed to combat issues encountered in the day-to-day development of content involving chains of artists working on disparate parts of the same end result. Where a minor fault early on can have a significant impact later and be that much more expensive to fix.
 
-##### Modularity
+#### Modularity
 
 The framework is built as a series of "modules".
 
@@ -41,7 +41,7 @@ Modules either define, extend or integrate Pyblish at some level.
 
 At the time of this writing, there are 40 actively developed repositories in the [Pyblish Organisation on GitHub][2].
 
-##### Packages
+#### Packages
 
 The inherent flexibility of modules maintaining their own version comes at a cost; maintaining a working state between all possible combinations of versions.
 
@@ -66,7 +66,7 @@ The packages then provide both the user with a foundation for communicating whic
 
 > "I'm using Pyblish X version 0.2 and I'm having this problem."
 
-##### Integrations
+#### Integrations
 
 Pyblish tackles the human "problem" of not being adequately precise or consistent with respect to what is required during the production of computer graphics. As such it can't be limited by the specific software you run.
 
@@ -74,10 +74,10 @@ To facilitate this, the Pyblish core is a software-agnostic Python library capab
 
 Some examples include..
 
-- [Pyblish for Maya][maya]
-- [Pyblish for Houdini][houdini]
-- [Pyblish for Nuke][nuke]
-- [Pyblish for Hiero][hiero]
+- [pyblish-maya][]
+- [pyblish-houdini][]
+- [pyblish-nuke][]
+- [pyblish-hiero][]
 
 Integrations are simple and typically boils down to a few lines of code with optional extras. Developers are encouraged to integrate hosts on their own via the dedicated [Pyblish Integration][3] module.
 
@@ -85,7 +85,7 @@ Integrations are simple and typically boils down to a few lines of code with opt
 
 - Integration Guide (coming soon)
 
-##### Extensions
+#### Extensions
 
 Because the problems you face during production are likely unique, Pyblish cannot make too many assumptions about how you will attempt to solve them.
 
@@ -100,18 +100,19 @@ Some examples include..
 
 Developers are encouraged to define, document and deploy their own unique workflows in the form of extensions, and share them with the world. This way, the efforts made by one can benefit all which ultimately makes our industry a better place to be.
 
+<div id="#github">
 <br>
-
-**Reading on GitHub?**
-
-- [Continue Reading](https://pyblish.gitbooks.io/developer-guide/content/workflow.html)
-
+<a target="_blank" href="https://pyblish.gitbooks.io/developer-guide/content/workflow.html">
+Continue Reading
+</a>
+<div>
+<br>
 <div class="modified-date">{{ file.mtime }}</div>
 
-[maya]: https://github.com/pyblish/pyblish-maya
-[houdini]: https://github.com/pyblish/pyblish-houdini
-[nuke]: https://github.com/pyblish/pyblish-nuke
-[hiero]: https://github.com/pyblish/pyblish-hiero
+[pyblish-maya]: https://github.com/pyblish/pyblish-maya
+[pyblish-houdini]: https://github.com/pyblish/pyblish-houdini
+[pyblish-nuke]: https://github.com/pyblish/pyblish-nuke
+[pyblish-hiero]: https://github.com/pyblish/pyblish-hiero
 [magenta]: https://github.com/pyblish/pyblish-magenta
 [napoleon]: https://github.com/pyblish/pyblish-napoleon
 [pyblish-qml]: https://github.com/pyblish/pyblish-qml
