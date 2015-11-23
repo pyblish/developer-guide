@@ -28,9 +28,7 @@ Practically, you would run this from your text editor, such that you can edit it
 
 <br>
 
-<!--sec data-title="Running into" data-id="section0" data-show=false ces-->
-
-### Running into trouble
+<!--sec data-title="Troubleshooting" data-id="section0" data-show=false ces-->
 
 If you run into trouble running the above, ensure you have the dependencies on your `PATH` and `PYTHONPATH`, otherwise skip to [Mocking](#mocking) below.
 
