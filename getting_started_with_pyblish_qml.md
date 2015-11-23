@@ -24,7 +24,9 @@ Practically, you would run this from your text editor, such that you can edit it
 
 - [app.py][1]
 
-<button class="section" target="section0" show="Show next section" hide="Hide next section"></button>
+<button class="section" target="section0" show="Troubleshoot" hide="Hide troubleshoot"></button>
+
+<br>
 
 <!--sec data-title="Running into" data-id="section0" data-show=false ces-->
 
