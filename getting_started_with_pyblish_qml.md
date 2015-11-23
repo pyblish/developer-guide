@@ -24,6 +24,8 @@ Practically, you would run this from your text editor, such that you can edit it
 
 - [app.py][1]
 
+<button class="section" target="section1" show="Show next section" hide="Hide next section"></button>
+
 <!--sec data-title="Introduction" data-id="section0" data-show=true ces-->
 
 Insert markdown content here (you should start with h3 if you use heading).
