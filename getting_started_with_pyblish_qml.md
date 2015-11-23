@@ -26,11 +26,7 @@ Practically, you would run this from your text editor, such that you can edit it
 
 <button class="section" target="section0" show="Show next section" hide="Hide next section"></button>
 
-<!--sec data-title="Introduction" data-id="section0" data-show=false ces-->
-
-Insert markdown content here (you should start with h3 if you use heading).
-
-<!--endsec-->
+<!--sec data-title="Running into" data-id="section0" data-show=false ces-->
 
 ### Running into trouble
 
@@ -46,6 +42,9 @@ As an additional test, to test for example the bit-ness of your Python interpret
 ```python
 python compat.py
 ```
+
+<!--endsec-->
+
 
 ### Mocking
 
