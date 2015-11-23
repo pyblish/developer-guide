@@ -24,11 +24,7 @@ Practically, you would run this from your text editor, such that you can edit it
 
 - [app.py][1]
 
-<button class="section" target="section0" show="Troubleshoot" hide="Hide troubleshoot"></button>
-
-<br>
-
-<!--sec data-title="Troubleshooting" data-id="section0" data-show=false ces-->
+### Troubleshooting
 
 If you run into trouble running the above, ensure you have the dependencies on your `PATH` and `PYTHONPATH`, otherwise skip to [Mocking](#mocking) below.
 
@@ -42,8 +38,6 @@ As an additional test, to test for example the bit-ness of your Python interpret
 ```python
 python compat.py
 ```
-
-<!--endsec-->
 
 
 ### Mocking
