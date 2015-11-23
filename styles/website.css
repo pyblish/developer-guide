@@ -28,3 +28,7 @@ html {
     padding-top: 50px;
     font-size: 0.8em;
 }
+
+#github {
+    display: none;
+}
