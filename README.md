@@ -100,7 +100,7 @@ Some examples include..
 
 Developers are encouraged to define, document and deploy their own unique workflows in the form of extensions, and share them with the world. This way, the efforts made by one can benefit all which ultimately makes our industry a better place to be.
 
-<div id="#github">
+<div id="github">
 <br>
 <a target="_blank" href="https://pyblish.gitbooks.io/developer-guide/content/workflow.html">
 Continue Reading
