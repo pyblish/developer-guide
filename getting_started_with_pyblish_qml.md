@@ -24,6 +24,12 @@ Practically, you would run this from your text editor, such that you can edit it
 
 - [app.py][1]
 
+<!--sec data-title="Introduction" data-id="section0" data-show=true ces-->
+
+Insert markdown content here (you should start with h3 if you use heading).
+
+<!--endsec-->
+
 ### Running into trouble
 
 If you run into trouble running the above, ensure you have the dependencies on your `PATH` and `PYTHONPATH`, otherwise skip to [Mocking](#mocking) below.
