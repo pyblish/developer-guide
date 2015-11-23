@@ -3,6 +3,7 @@
 Running Pyblish QML as a user involves hitting the "Publish" menu-item of your host, or running something like this.
 
 ```python
+# In a Python interpreter
 import pyblish_maya
 pyblish_maya.show()
 ```
