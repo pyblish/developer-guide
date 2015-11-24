@@ -14,6 +14,10 @@ code {
     color: #c7254e;
 }
 
+pre code {
+    color: rgb(51, 51, 51);
+}
+
 .book .book-summary ul.summary li a {
     padding: 6px 15px;
     font-size: 0.9em;
