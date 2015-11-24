@@ -5,7 +5,7 @@
 
 As mentioned previously, once [pyblish-qml][] is up and running, it will also be set-up to listen on port `9090` so all we need to do in order to speak with it is connect.
 
-> Ensure you have either [pyblish-qml][] running such as in debug-mode, via a host or [pyblish-tray][] before attempting this.
+> Ensure you have [pyblish-qml][] running in either debug-mode, via a host or [pyblish-tray][] before attempting this.
 
 ```python
 import xmlrpclib
