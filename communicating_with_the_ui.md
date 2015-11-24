@@ -4,7 +4,7 @@
 
 ![article1_img7](https://cloud.githubusercontent.com/assets/2152766/11361011/b9d015e2-9281-11e5-91b1-9164dcbde9ca.png)
 
-As mentioned previously, the UI is already set-up to listen on port `9090` so all we need to do in order to speak with it is connect.
+As mentioned previously, once [pyblish-qml][] is up and running, it will also be set-up to listen on port `9090` so all we need to do in order to speak with it is connect.
 
 > Ensure you have either a host or [pyblish-tray][] already running before attempting this.
 
