@@ -14,7 +14,23 @@ proxy = xmlrpclib.ServerProxy("http://127.0.0.1:9090")
 proxy.show(9001) # Port number of the a host
 ```
 
-The port number typically is passed from a host such that the UI knows with whom it is speaking. In this case, as we are testing and getting familiar with things, we pass it in manually.
+The `9001` is your "business card". It let's [pyblish-qml][] know that the client looking to communicate with it can be communicated with in return via this port. In this way, it is more than just a single-sided conversation. In this way, they can freely communicate with each other!
+
+Under normal circumstances, this port number is established during host initialisation.
+
+```python
+import pyblish_maya
+pyblish_maya.setup()  # A port number is assigned
+```
+
+The port number is then stored "behind the scenes" in an environment variable called `PYBLISH_CLIENT_PORT` and it is this number which is automatically passed upon the user pressing the **Publish** menu-item.
+
+```python
+import os
+assert os.environ["PYBLISH_CLIENT_PORT"] == "9001"
+```
+
+> Note that you may see a different number, such as 9002, depending on how many hosts you currently have open. Each host has a unique number, starting from 9001.
 
 You can also use the convenience function from within a host provided by the [pyblish-qml][] module.
 
@@ -24,7 +40,7 @@ proxy = client.proxy()
 proxy.show(9001)
 ```
 
-The convenience function doesn't need a port number, as it will use the one stored in the environment variable `CLIENT_PORT`, which represents the port number at which the running host is listening.
+The convenience function is much the same, but also includes a reasonable time-out for when the host is unresponsive.
 
 Here are some of the functionality exposed via the proxy.
 
