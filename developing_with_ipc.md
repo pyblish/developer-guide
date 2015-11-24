@@ -44,7 +44,7 @@ proxy.ping()
 
 > Note the additional path `/pyblish`.
 
-You can find the exposed port number of your host via the environment variable `QML_CLIENT_PORT` which in this case is `9001`. If the variable isn't available, make sure the Pyblish has been installed correctly and that the integration is loaded.
+You can find the exposed port number of your host via the environment variable `PYBLISH_CLIENT_PORT` which in this case is `9001`. If the variable isn't available, make sure the Pyblish has been installed correctly and that the integration is loaded.
 
 - [Installation guide](https://github.com/pyblish/pyblish/wiki#installation)
 
