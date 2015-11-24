@@ -14,7 +14,7 @@ proxy = xmlrpclib.ServerProxy("http://127.0.0.1:9090")
 proxy.show(9001) # Port number of the a host
 ```
 
-The `9001` is your "business card". It let's [pyblish-qml][] know that the client looking to communicate with it can be communicated with in return via this port. In this way, it is more than just a single-sided conversation. In this way, they can freely communicate with each other!
+The `9001` is your "business card". It let's [pyblish-qml][] know that the client looking to communicate with it can be communicated with in return via this port. In this way, communicating is bi-directional.
 
 Under normal circumstances, this port number is established during host initialisation.
 
