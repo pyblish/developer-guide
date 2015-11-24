@@ -10,6 +10,10 @@ html {
     margin-bottom: .85em;
 }
 
+code {
+    color: #c7254e;
+}
+
 .book .book-summary ul.summary li a {
     padding: 6px 15px;
     font-size: 0.9em;
