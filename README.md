@@ -7,6 +7,10 @@ A maintainers and feature developers guide to Pyblish.
 - [Tutorial](http://forums.pyblish.com/t/learning-pyblish-by-example/108?u=marcus)
 - [Discussion forums](http://forums.pyblish.com/t/developer-guide)
 
+**Found a bug?**
+
+- [Create an issue](https://github.com/pyblish/developer-guide/issues)
+
 <br>
 <br>
 <br>
