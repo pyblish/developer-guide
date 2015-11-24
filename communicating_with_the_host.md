@@ -2,6 +2,8 @@
 
 > Unfinished
 
+![article1_img7](https://cloud.githubusercontent.com/assets/2152766/11360996/972efe54-9281-11e5-90c7-3f4455a2d8b8.png)
+
 Conversely, the UI creates a proxy much like the above and requests data of its own.
 
 Remember there are two processes running, one local and one remote. The remote in the case of the UI is the host. Now let's have a look at what happens on the local side during the processing of a single plug-in from the user interface.
