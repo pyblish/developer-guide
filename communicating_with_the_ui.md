@@ -44,12 +44,14 @@ The convenience function is much the same, but also includes a reasonable time-o
 
 Here are some of the functionality exposed via the proxy.
 
-- show(int, dict)
-- hide()
-- quit()
-- kill()
-- heartbeat(int)
-- find_available_port()
+| Command                     | Description
+|-----------------------------|:--------------------
+| `show(int, dict)`           | Connect with pyblish-qml, takes port and window-settings.
+| `hide()`                    | Hide the currently open pyblish-qml window, without quitting.
+| `quit()`                    | Quit the process, including clean-up.
+| `kill()`                    | Forcefully quit the process.
+| `heartbeat(int)`            | Tell [pyblish-qml][] that you are alive, takes a port number.
+| `find_available_port()`     | Query [pyblish-qml][] for the next available, unique port number.
 
 <br>
 
