@@ -1,6 +1,5 @@
 # Communicating with the UI
 
-> Unfinished
 
 ![article1_img7](https://cloud.githubusercontent.com/assets/2152766/11361011/b9d015e2-9281-11e5-91b1-9164dcbde9ca.png)
 
