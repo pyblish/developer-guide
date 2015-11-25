@@ -17,7 +17,7 @@
        * [Creating a pull-request](creating_a_pull-request.md)
    * [Writing a UI](writing_a_ui.md)
    * [Pyblish in 200 lines](pyblish_in_200_lines.md)
+* [Coding Standards](coding_standards.md)
 * [Suggestions for Improvements](suggestions_for_improvements.md)
 * [To be added](to_be_added.md)
-* [Coding Standards](coding_standards.md)
 
