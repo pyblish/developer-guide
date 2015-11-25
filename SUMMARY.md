@@ -19,5 +19,5 @@
    * [Pyblish in 200 lines](pyblish_in_200_lines.md)
 * [Suggestions for Improvements](suggestions_for_improvements.md)
 * [To be added](to_be_added.md)
-* Style Guide
+* [Coding Standards](coding_standards.md)
 
