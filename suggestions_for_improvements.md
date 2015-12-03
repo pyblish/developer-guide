@@ -13,7 +13,7 @@ Here are a few things that I personally think could be improved.
 <br>
 <br>
 
-### Design Challenge
+### Simplicity
 
 The greatest design challenge currently, is the implicit behavioral difference in passing `context` and passing `instance` to the `process()` method of a plug-in.
 
