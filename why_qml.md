@@ -31,6 +31,10 @@ It also comes with a few cons.
 
 For hack-and-slash software, written in the heat of production, the provided integration is indispensable. Enabling the rapid development of tools otherwise not possible. For software meant to last, the future is now.
 
+**See also**
+
+- [Original issue on GitHub](https://github.com/pyblish/pyblish/issues/48)
+
 <div class="modified-date">{{ file.mtime }}</div>
 
 [pyblish-qml]: https://github.com/pyblish/pyblish-qml
