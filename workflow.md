@@ -36,6 +36,30 @@ class MyPlugin(pyblish.api.Plugin):
               "or subclass of Plugin")
 ```
 
+Each of the four processing patterns then have a subclass each for you to use that help communicate their role.
+
+```python
+class MyCollector(pyblish.api.Collector):
+    ...
+
+class MyCollector(pyblish.api.Validator):
+    ...
+```
+
+It's worth noting that each subclass merely provides an ordering to the default `Plugin` that match their role in the system.
+
+```python
+# For example, these two plugins are identical.
+class MyCollectorA(pyblish.api.Validator):
+    ...
+
+class MyCollectorB(pyblish.api.Plugin):
+    order = 1
+    ...
+```
+
+- [Find their definition here](https://github.com/pyblish/pyblish/blob/master/pyblish/plugin.py)
+
 ### Communication
 
 It is the technical directors responsibility to identify and program the various conventions found in a pipeline so as to safeguard an artist from producing content that might eventually lead to problems further down the pipeline. The technical director then communicates his definitions with the artist via 3 primary mechanisms.
