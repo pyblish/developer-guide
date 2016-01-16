@@ -34,7 +34,7 @@ Pyblish, like any program, consists of a lot of files. However in the case of Py
 
 For example, because each component of Pyblish is a Git repository, it is technically possible to run `git pull` on an individual repository. However, due to various reasons (permissions, disk space, time of day or color of the sky) some files may either not get updated or some files may get left behind that should really have gotten removed.
 
-An improvement would be to increase robustness; either by reducing the amount of files, or somehow better safeguarding files; possible by removing the Git history. Another option might be to compile/pack as many files as possible into as few binaries as possible.
+An improvement would be to increase robustness; either by reducing the amount of files, or somehow better safeguarding files; possible by removing the Git history. Another option might be to compile/pack as many files as possible into as few binaries as possible. (Using zip-archives as modules?)
 
 <br>
 <br>
