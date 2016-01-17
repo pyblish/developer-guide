@@ -42,7 +42,7 @@ An improvement would be to increase robustness; either by reducing the amount of
 
 ### Iterator and Responsibility
 
-Currently, the Pyblish QML GUI lacks the ability to tell you which plug-in is currently running. It simply can't know this, because the decision isn't made by the GUI, it's made by the core library with which the GUI is a slave to. So, a request is sent "Hey, publish *these* plug-ins using *this* context" to which the Pyblish core responde "Ok, I'll let you know how it goes".
+Currently, the Pyblish QML GUI lacks the ability to tell you which plug-in is currently running. It simply can't know this, because the decision isn't made by the GUI, it's made by the core library to which the GUI is a slave. So, a request is sent "Hey, publish *these* plug-ins using *this* context" to which the Pyblish core responde "Ok, I'll let you know how it goes".
 
 This is no good. The GUI is a controller, it should be able to make decisions about what to do. In that way, you are able to make those decisions. Therefore, it is imperative that the decision be put into the hands of the GUI such that the GUI can then offer the choice to you, and in effect gain the ability to accurately represent what is happening.
 
