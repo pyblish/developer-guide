@@ -12,6 +12,13 @@ Here are a few things that I personally think could be improved.
 [logic.process]: https://github.com/pyblish/pyblish/blob/master/pyblish/logic.py#L51
 [logic.test]: https://github.com/pyblish/pyblish/blob/master/pyblish/logic.py#L17
 
+Below are some further in-depth topics of suggested improvements.
+
+- [Simplicity](#simplicity)
+- [Brittleness](#brittleness)
+- [Iterator and Responsibility](#iterator-and-responsibility)
+- [`ContextPlugin` & `InstancePlugin`](#ContextPlugin--- InstancePlugin)
+
 <br>
 <br>
 <br>
