@@ -1,4 +1,4 @@
-# Pyblish in 200 lines
+# Pyblish in 100 lines
 
 Pyblish is a tiny framework. Even though it consists of over 40 individual Git repositories, only one of them represents the actual mechanism and is tiny enough to fully understand.
 
@@ -6,7 +6,7 @@ What better way for me to reflect, and for you to understand this, than to demon
 
 | **Part**                  | **Description**
 |:--------------------------|:-------------
-| [Code](#code)             | 200 lines of standalone code representing the Pyblish core.
+| [Code](#code)             | 100 lines of standalone code representing the Pyblish core.
 | [Breakdown](#breakdown)   | Highlights and describes some of the higher level lessons to take away from this article.
 
 <br>
@@ -15,14 +15,13 @@ What better way for me to reflect, and for you to understand this, than to demon
 
 ### Code
 
-The following represents Pyblish at it's core, no fuzz. It runs directly in Python with no dependencies, in 200 lines of code or less, including comments.
+The following represents Pyblish at it's core, no fuzz. It runs directly in Python with no dependencies, in ~100 lines of code, including comments.
 
-- [Code as GitHub Gist](https://gist.github.com/mottosso/9b28156f3b077e7048c8)
+- [Code as GitHub Gist](https://gist.github.com/mottosso/b923f5b29dfceaa6d86c)
 
 **Including**
 
 - An accurate representation of module and class hierarchy
-- The dependency injection mechanism
 - Processing
 - CVEI
 - Logging
@@ -38,205 +37,109 @@ The following represents Pyblish at it's core, no fuzz. It runs directly in Pyth
 > The """docstrings""" and `#` comments are for you.
 
 ```python
-import json
 import types
-import inspect
 
-# The core Pyblish package is mocked.
-# These are all relevant members to processing.
-pyblish = types.ModuleType("pyblish")
-pyblish.api = types.ModuleType("api")
-pyblish.plugin = types.ModuleType("plugin")
-pyblish.plugin.process = None   # Implemented below
-pyblish.plugin.Provider = None  # Implemented below
-pyblish.logic = types.ModuleType("logic")
-pyblish.logic.process = None    # Implemented below
+# Mocked Pyblish module
+pyblish = types.ModuleType('pyblish')
+pyblish.api = types.ModuleType('api')
+pyblish.api.CollectorOrder = 0
+pyblish.api.ValidatorOrder = 1
+pyblish.plugin = types.ModuleType('plugin')
+pyblish.logic = types.ModuleType('logic')
 
 
-# This metaclass hides certain (internal) aspects of plug-ins that
-# the end-user (e.g. you) aren't intended to ever touch.
-class MetaPlugin(type):
-    def __init__(cls, *args, **kwargs):
-        args_ = inspect.getargspec(cls.process).args
-        cls.__instanceEnabled__ = "instance" in args_
-
-
-class Plugin(object):
-    __metaclass__ = MetaPlugin
-
-    order = 0
-
+# Ignore this class
+class _Plugin(object):
     def __init__(self):
-        # This illustrates how logging works and how logs are
-        # stored and retrieved during processing.
         self._records = list()
-        self.log = type("Logger", (object,), {})()
-        self.log.info = self._records.append
-
-    def process(self):
-        # The default implementation does nothing
-        # hence no need to call upon super().
-        pass
+        self.log = type('Logger', (object,), {})()
+        self.log.info = lambda text: self._records.append(text + '\n')
 
 
-# The CVEI superclasses, also does nothing but define a default order
-Collector = type("Collector", (Plugin,), {"order": 0})
-Validator = type("Validator", (Plugin,), {"order": 1})
-Extractor = type("Extractor", (Plugin,), {"order": 2})
-Integrator = type("Integrator", (Plugin,), {"order": 3})
+# In place of Plugin and CVEI superclasses, two distinct types are defined.
+# Each has a unique, explicit behaviour, as opposed to the implicit behavior
+# present in the current CVEI types.
+class ContextPlugin(_Plugin):
+    pass
 
 
-class Provider(object):
-    """The dependency-injection mechanism
-
-    Available arguments to a plug-ins `process()` method
-    are injected here and later passed to the function via `invoke()`.
-
-    Example
-        >>> def function(name):
-        ...     print(name)
-        ...
-        >>> provider = Provider()
-        >>> provider.inject("name", "Marcus")
-        >>> provider.invoke(function)
-        "Marcus"
-
-    """
-
-    def __init__(self):
-        self._services = {}
-
-    def inject(self, name, obj):
-        self._services[name] = obj
-
-    def invoke(self, func):
-        args = self.args(func)
-        return func(**{k: v for k, v in self._services.items()
-                       if k in args})
-
-    @classmethod
-    def args(cls, func):
-        return [a for a in inspect.getargspec(func)[0]
-                if a not in ("self", "cls")]
-
-pyblish.plugin.Provider = Provider
+class InstancePlugin(_Plugin):
+    pass
 
 
 # Example plugins
-class CollectInstances(Collector):
+class CollectInstances(ContextPlugin):
+    # The order is equally explicit and assigned
+    # either via static, named numbers, or as usual
+    # via arbitrary numbers. Sorting remains unchanged
+    order = pyblish.api.CollectorOrder
+
     def process(self, context):
-        context.append("instance1")
-        context.append("instance2")
-        self.log.info("Processing context..")
+        context.append('instance1')
+        context.append('instance2')
+        self.log.info('Processing context..')
 
 
-class ValidateInstances(Validator):
+class ValidateInstances(InstancePlugin):
+    order = pyblish.api.ValidatorOrder
+
     def process(self, instance):
-        self.log.info("Processing %s" % instance)
+        self.log.info('Processing %s' % instance)
 
-
-# Ordering
 plugins = [ValidateInstances, CollectInstances]
 plugins = sorted(plugins, key=lambda item: item.order)
 
-
-# Primary processing function.
-# This function runs your plug-in and produces a `result` dictionary.
-def process(plugin, context, instance):
-    print("plugin.process running..")
-    print("Individually processing \"%s\"" % (instance or "Context"))
+# plugin.process is greatly simplified.
+# Note the disappearance of the provider.
+def process(plugin, **kwargs):
+    print('individually processing %s' % kwargs.values()[0])
 
     result = {
-        "plugin": plugin.__name__,
-        "instance": None,
-        "error": None,
-        "records": list(),
-        "success": False
+        'plugin': plugin,
+        'item': None,
+        'error': None,
+        'records': list(),
+        'success': False
     }
 
-    provider = pyblish.plugin.Provider()
-    provider.inject("plugin", plugin)
-    provider.inject("context", context)
-    provider.inject("instance", instance)
-
-    plugin = plugin()
-
     try:
-        provider.invoke(plugin.process)
+        plugin = plugin()
+        plugin.process(**kwargs)
     except Exception as e:
-        result["success"] = False
-        result["error"] = e
+        result['success'] = False
+        result['error'] = e
 
-    result["records"] = plugin._records
+    result['records'] = plugin._records
 
     return result
 
 pyblish.plugin.process = process
 
 
-# Logical processing function.
-# This function delegates processing the appropriate plug-in/instance pair.
-def process(func, plugins, context):
-    print("logic.process running..")
+# logic.process is greatly simplified
+def process(plugins, context):
+    print('logic.process running..')
 
     for plugin in plugins:
-        print("Processing plug-in: %s" % plugin)
+        print('Processing %s' % plugin)
 
         # Run once
-        if not plugin.__instanceEnabled__:
-            yield func(
-                plugin=plugin,
-                context=context,
-                instance=None)
+        if issubclass(plugin, ContextPlugin):
+            yield pyblish.plugin.process(plugin, context=context)
 
-        # Run per instance
-        else:
+        # Run once per instance
+        if issubclass(plugin, InstancePlugin):
             for instance in context:
-                yield func(
-                    plugin=plugin,
-                    context=context,
-                    instance=instance)
+                yield pyblish.plugin.process(plugin, instance=instance)
 
 pyblish.logic.process = process
 
 
 # Example usage
-def publish():
-    context = list()
-    processor = pyblish.logic.process(
-        func=pyblish.plugin.process,
-        plugins=plugins,
-        context=context
-    )
-    
-    print("Starting..")
-    results = list()
-    for result in processor:
-        results.append(result)
-    
-    print("\nFinished, printing results")
-    print(json.dumps(results, indent=4))
-
-
-if __name__ == "__main__":
-    publish()
-    # Starting..
-    # logic.process running..
-    # Processing plug-in: <class '__main__.CollectInstances'>
-    # plugin.process running..
-    # Individually processing "Context"
-    # Processing plug-in: <class '__main__.ValidateInstances'>
-    # plugin.process running..
-    # Individually processing "instance1"
-    # plugin.process running..
-    # Individually processing "instance2"
-    
-    # Finished, printing results
-    # [
-    #     {
-    #         "instance": null,
-    #         "error": null,
-    #         ...
+context = list()
+processor = pyblish.logic.process(plugins, context)
+results = list(processor)
+print(results)
 ```
 
 <br>
@@ -245,10 +148,7 @@ if __name__ == "__main__":
 
 ### Breakdown
 
-Once you've run the above code, absorbed it's output, let's turn our attention to some of the novelties in it.
-
-1. There are 2 `process()` functions.
-2. Notice how `Provider` is instantiated, injected and then used.
+Once you've run the above code, absorbed it's output, let's turn our attention to some of the novelties within.
 
 `plugin.process()` is the first runner up. It handles actually running your plug-in with either an [Instance][] or the full [Context][]. It isn't particularly interesting (except for maybe how it generates the [result][] dictionary, which is later [validated][1] by [json-schema][2] during interaction with [pyblish-rpc][]).
 
