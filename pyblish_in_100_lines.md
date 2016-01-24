@@ -17,8 +17,6 @@ What better way for me to reflect, and for you to understand this, than to demon
 
 The following represents Pyblish at it's core, no fuzz. It runs directly in Python with no dependencies, in ~100 lines of code, including comments.
 
-- [Code as GitHub Gist](https://gist.github.com/mottosso/b923f5b29dfceaa6d86c)
-
 **Including**
 
 - An accurate representation of module and class hierarchy
@@ -34,7 +32,7 @@ The following represents Pyblish at it's core, no fuzz. It runs directly in Pyth
 - Actions
 - Plug-in discovery
 
-> The """docstrings""" and `#` comments are for you.
+**100 lines**
 
 ```python
 import types
@@ -142,6 +140,8 @@ results = list(processor)
 print(results)
 ```
 
+- [Code as GitHub Gist](https://gist.github.com/mottosso/b923f5b29dfceaa6d86c)
+
 <br>
 <br>
 <br>
@@ -149,6 +149,8 @@ print(results)
 ### Breakdown
 
 Once you've run the above code, absorbed it's output, let's turn our attention to some of the novelties within.
+
+### TODO
 
 `plugin.process()` is the first runner up. It handles actually running your plug-in with either an [Instance][] or the full [Context][]. It isn't particularly interesting (except for maybe how it generates the [result][] dictionary, which is later [validated][1] by [json-schema][2] during interaction with [pyblish-rpc][]).
 
