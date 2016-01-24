@@ -7,12 +7,16 @@
         "epub": "styles/website.css"
     },
     "plugins": [
-        "ga"
+        "ga",
+        "versions"
     ],
     "pluginsConfig": {
         "ga": {
             "token": "UA-54795291-2",
             "configuration": "auto"
+        },
+        "versions": {
+            "type": "branches"
         }
     }
 }
