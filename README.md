@@ -15,6 +15,7 @@ A maintainers and feature developers guide to Pyblish.
 <br>
 <br>
 
+
 ### Prerequisites
 
 You are expected to have a general familiarity with [Git][] and the [GitHub][] community. We use GitHub to both host source code and to coordinate efforts, via [issues][] and [pull-requests][]. As such you are expected to both read and write your own issues and to fork and create pull-requests with your changes, changes which will be subjected to both automated and peer based code-review.
