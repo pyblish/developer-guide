@@ -73,9 +73,9 @@ To combat this, some modules form so-called "packages".
 
 ![image](https://cloud.githubusercontent.com/assets/2152766/11087014/920cb84a-884e-11e5-9c96-16e5a63a2160.png)
 
-Packages *group* a number of other modules into a combination of versions known to work together. For example, version 0.2.0 of [pyblish-x][] consists of the following modules and versions.
+Packages *group* a number of other modules into a combination of versions known to work together. For example, version 0.2.0 of [pyblish][] consists of the following modules and versions.
 
-- [pyblish][] v1.2.1
+- [pyblish-base][] v1.2.1
 - [pyblish-qml][] v0.3.2
 - [pyblish-rpc][] v0.1.4
 - [pyblish-integration][] v0.1.1
@@ -144,9 +144,9 @@ Continue Reading
 [napoleon]: https://github.com/pyblish/pyblish-napoleon
 [pyblish-qml]: https://github.com/pyblish/pyblish-qml
 [pyblish-rpc]: https://github.com/pyblish/pyblish-rpc
-[pyblish]: https://github.com/pyblish/pyblish
+[pyblish-base]: https://github.com/pyblish/pyblish-base
 [pyblish-integration]: https://github.com/pyblish/pyblish-integration
-[pyblish-x]: https://github.com/pyblish/pyblish-x
+[pyblish]: https://github.com/pyblish/pyblish
 
 [Context]: https://github.com/pyblish/pyblish.api/wiki/Context
 [Instance]: https://github.com/pyblish/pyblish.api/wiki/Instance
