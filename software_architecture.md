@@ -28,8 +28,8 @@ Here are some examples of modules and packages.
 | ![][package]   | [pyblish-win][]        | Officially supported modules and binaries for Windows (package)
 | ![][package]   | [pyblish-linux][]      | Officially supported modules and binaries for Linux (package)
 | ![][package]   | [pyblish-osx][]        | Officially supported modules and binaries for Linux (package)
-| ![][package]   | [pyblish-x][]          | Officially supported modules (package)
-| ![][module]    | [pyblish][]            | Core module, the heart of Pyblish.
+| ![][package]   | [pyblish][]          | Officially supported modules (package)
+| ![][module]    | [pyblish-base][]            | Core module, the heart of Pyblish.
 | ![][module]    | [pyblish-qml][]        | User interface module, the face of Pyblish.
 | ![][module]    | [pyblish-tray][]       | The Pyblish control panel
 | ![][module]    | [pyblish-rpc][]        | Communication bridge between the core and user interface of Pyblish.
@@ -115,7 +115,7 @@ The [results][] dictionary is appended to a list within the [Context][] - access
 [plugin.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/plugin.py
 [logic.py]: https://github.com/pyblish/pyblish/blob/master/pyblish/logic.py
 
-[pyblish]: https://github.com/pyblish/pyblish
+[pyblish-base]: https://github.com/pyblish/pyblish-base
 [pyblish-maya]: https://github.com/pyblish/pyblish-maya
 [pyblish-houdini]: https://github.com/pyblish/pyblish-houdini
 [pyblish-nuke]: https://github.com/pyblish/pyblish-nuke
@@ -127,7 +127,7 @@ The [results][] dictionary is appended to a list within the [Context][] - access
 [pyblish-win]: https://github.com/pyblish/pyblish-win
 [pyblish-linux]: https://github.com/pyblish/pyblish-linux
 [pyblish-osx]: https://github.com/pyblish/pyblish-osx
-[pyblish-x]: https://github.com/pyblish/pyblish-x
+[pyblish]: https://github.com/pyblish/pyblish
 [pyblish-tray]: https://github.com/pyblish/pyblish-tray
 [pyblish-integration]: https://github.com/pyblish/pyblish-integration
 [pyblish-ci]: https://github.com/pyblish/pyblish-ci
