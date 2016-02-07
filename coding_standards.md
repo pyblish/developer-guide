@@ -2,6 +2,7 @@
 
 The Pyblish codebase has a very strict and consistent coding style. If you are to develop for Pyblish, it's a good idea to stick with it!
 
+- Commit messages should be written in imperative mood; e.g. "*change xyz*". **Not** "*changes xyz*" or "*changed xyz*".
 - A vast majority of these rules conform with [PEP8][1] and as such it is recommended that you familiarise yourself with it.
 - For docstrings, you must follow the [Google Napoleon convention][2].
 - For code complexity and health, you are advised to adhere to [pylint][3] and [pyflakes][4]; both of which are probably available as linters to your IDE.
