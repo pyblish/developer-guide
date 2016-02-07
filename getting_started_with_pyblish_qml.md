@@ -10,16 +10,13 @@ pyblish_maya.show()
 
 As a developer however, we need more control. And output.
 
-So instead, it is recommended that you run the application directly.
+So instead, it is recommended that you run the application in debug-mode.
 
 ```python
-cd pyblish-qml/pyblish_qml
-python app.py
+python -m pyblish_qml --debug
 ```
 
-> This will launch QML in "debug mode". 
-
-Practically, you would run this from your text editor, such that you can edit it and see the changes directly.
+In practice, you edit your file whilst keeping a terminal open on the side from which you run the application.
 
 **See also**
 
