@@ -26,8 +26,8 @@ And here is an example of a **bugfix** - [Plug-in filepath can't be retrieved][2
 Here is an example of a new **feature** - [Instance multi-family support][1]<br>
 
 [Instance]: https://github.com/pyblish/pyblish.api/wiki/Instance
-[1]: https://github.com/pyblish/pyblish/issues/231
-[2]: https://github.com/pyblish/pyblish/issues/229
+[1]: https://github.com/pyblish/pyblish-base/issues/231
+[2]: https://github.com/pyblish/pyblish-base/issues/229
 
 ### Zoning in
 
