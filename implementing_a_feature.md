@@ -25,7 +25,7 @@ Well defined means it has..
 And here is an example of a **bugfix** - [Plug-in filepath can't be retrieved][2]<br>
 Here is an example of a new **feature** - [Instance multi-family support][1]<br>
 
-[Instance]: https://github.com/pyblish/pyblish.api/wiki/Instance
+[Instance]: https://pyblish.gitbooks.io/api/content/pages/Instance.html
 [1]: https://github.com/pyblish/pyblish-base/issues/231
 [2]: https://github.com/pyblish/pyblish-base/issues/229
 
@@ -242,7 +242,7 @@ Version 1.2.2
 
 It's customary to include a reference to the corresponding issue, here that is [#231][].
 
-[#231]: https://github.com/pyblish/pyblish/issues/231
+[#231]: https://github.com/pyblish/pyblish-base/issues/231
 
 #### Committing
 
