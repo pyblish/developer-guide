@@ -3,6 +3,7 @@
 * [Introduction](README.md)
 * [Workflow](workflow.md)
 * [Software Architecture](software_architecture.md)
+* [A Tale of Three APIs](a_tale_of_three_apis.md)
 * [User Interface](user_interface.md)
    * [Why QML?](why_qml.md)
    * [Getting started with Pyblish QML](getting_started_with_pyblish_qml.md)
