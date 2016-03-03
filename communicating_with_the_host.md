@@ -7,9 +7,10 @@ Conversely, the UI creates a proxy much like the host does.
 Remember there are two processes running, one local and one remote. The remote in the case of the UI is the host. Now let's have a look at what happens on the local side during the processing of a single plug-in from the user interface.
 
 1. User hits publish
-2. UI elements and parsed into proxies
+2. UI elements are parsed into proxies
 3. Proxies are sent via [pyblish-rpc.client][] from the GUI
 4. Proxies are recieved via [pyblish-rpc.service][] on the remote
+5. Proxies are converted into objects and passed to [`process()`](https://github.com/pyblish/pyblish-base/blob/2bb88c373c4abe8d93ff68f7e9b330b2c4a696a4/pyblish/plugin.py#L399) for processing.
 
 [pyblish-rpc.client]: https://github.com/pyblish/pyblish-rpc/blob/master/pyblish_rpc/client.py
 [pyblish-rpc.service]:https://github.com/pyblish/pyblish-rpc/blob/master/pyblish_rpc/service.py
