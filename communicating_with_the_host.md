@@ -21,9 +21,9 @@ Remember there are two processes running, one local and one remote. The remote i
 In Maya, once `pyblish_maya.setup()` has been run, this is how the GUI connects with it.
 
 ```python
->>> import xmlrpclib
->>> proxy = xmlrpclib.ServerProxy("http://127.0.0.1:9001/pyblish")
->>> proxy.context()
+import xmlrpclib
+proxy = xmlrpclib.ServerProxy("http://127.0.0.1:9001/pyblish")
+proxy.context()
 # {'data': {'cwd': 'C:\\Program Files\\Autodesk\\Maya2015', 'pyblishRPCVersion': '0.2.0', 'currentFile': '.', 'results': 'Not supported', 'connectTime': '2016-03-03T06:32:26.449000Z', 'pythonVersion': '2.7.3 (default, May  8 2013, 09:43:48) [MSC v.1700 64 bit (AMD64)]', 'date': '2016-03-03T06:27:08.405000Z', 'host': 'maya, mayapy, mayabatch, python', 'pyblishServerVersion': '1.3.1', 'user': 'marcus', 'workspaceDir': 'C:\\Users\\marcus\\Documents\\maya\\projects\\default', 'current_file': '.', 'workspace_dir': 'C:\\Users\\marcus\\Documents\\maya\\projects\\default', 'port': 9001}, 'children': []}
 ```
 
