@@ -1,7 +1,5 @@
 # UI Communicating with the Host
 
-> Unfinished
-
 ![article1_img7](https://cloud.githubusercontent.com/assets/2152766/11360996/972efe54-9281-11e5-90c7-3f4455a2d8b8.png)
 
 Conversely, the UI creates a proxy much like the host does.
@@ -16,7 +14,9 @@ Remember there are two processes running, one local and one remote. The remote i
 [pyblish-rpc.client]: https://github.com/pyblish/pyblish-rpc/blob/master/pyblish_rpc/client.py
 [pyblish-rpc.service]:https://github.com/pyblish/pyblish-rpc/blob/master/pyblish_rpc/service.py
 
-**Example**
+<br>
+
+### Example
 
 In Maya, once `pyblish_maya.setup()` has been run, this is how the GUI connects with it.
 
@@ -28,6 +28,20 @@ In Maya, once `pyblish_maya.setup()` has been run, this is how the GUI connects 
 ```
 
 Other integrations exhibit similar interfaces.
+
+<br>
+
+Here are some of the functionality exposed via the proxy.
+
+| Command          | Description
+|------------------|:--------------------
+| `test()`         | Return currently registered test
+| `ping()`         | Used to check connectivity
+| `stats()`        | Return statistics about the API
+| `reset()`        | Run collection
+| `context(int)`   | Return current context
+| `discover()`     | Return discovered plug-ins
+| `emit()`         | Remotely emit an event
 
 <br>
 
