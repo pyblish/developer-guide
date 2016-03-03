@@ -10,8 +10,28 @@ Remember there are two processes running, one local and one remote. The remote i
 
 1. User hits publish
 2. UI elements and parsed into proxies
-3. Proxies are sent to [logic.process][]
-4. [logic.process][] delegates the task to the remote
+3. Proxies are sent via [pyblish-rpc.client][] from the GUI
+4. Proxies are recieved via [pyblish-rpc.service][] on the remote
+
+[pyblish-rpc.client]: https://github.com/pyblish/pyblish-rpc/blob/master/pyblish_rpc/client.py
+[pyblish-rpc.service]:https://github.com/pyblish/pyblish-rpc/blob/master/pyblish_rpc/service.py
+
+**Example**
+
+In Maya, once `pyblish_maya.setup()` has been run, this is how the GUI connects with it.
+
+```python
+>>> import xmlrpclib
+>>> proxy = xmlrpclib.ServerProxy("http://127.0.0.1:9001/pyblish")
+>>> proxy.context()
+# {'data': {'cwd': 'C:\\Program Files\\Autodesk\\Maya2015', 'pyblishRPCVersion': '0.2.0', 'currentFile': '.', 'results': 'Not supported', 'connectTime': '2016-03-03T06:32:26.449000Z', 'pythonVersion': '2.7.3 (default, May  8 2013, 09:43:48) [MSC v.1700 64 bit (AMD64)]', 'date': '2016-03-03T06:27:08.405000Z', 'host': 'maya, mayapy, mayabatch, python', 'pyblishServerVersion': '1.3.1', 'user': 'marcus', 'workspaceDir': 'C:\\Users\\marcus\\Documents\\maya\\projects\\default', 'current_file': '.', 'workspace_dir': 'C:\\Users\\marcus\\Documents\\maya\\projects\\default', 'port': 9001}, 'children': []}
+```
+
+Other integrations exhibit similar interfaces.
+
+<br>
+
+### Serialisation
 
 Because Python in one process does not have access to the local variables of another process, the delegation involves a conversion of the local variables and instantiated classes into something we can transfer without loss of information and also use in order to recreate the exact scenario on the remote; JSON.
 
