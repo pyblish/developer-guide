@@ -16,7 +16,7 @@ In Pyblish, there are three conceptual APIs of interest while developing plug-in
 
 The Pyblish library itself carries an interface that is exposed to plug-ins.
 
-This is the interface you gain access to from within your plug-in during development and includes helper functions exposed globally, such as [format_filename][ff].
+This is the interface you gain access to from within your plug-in during development and includes helper functions exposed globally, such as [format_filename](http://api.pyblish.com/pages/format_filename.html).
 
 ```python
 # Library API
@@ -37,7 +37,7 @@ This is the interface you gain access to from within your plug-in during develop
 
 ![image](https://cloud.githubusercontent.com/assets/2152766/7368408/75473d10-ed9f-11e4-8d41-230776dd7587.png)
 
-Each plug-in also exposes attributes to the library. Primarily, attributes used to identifying the plug-in such its [[family support|API family]] and processing methods.
+Each plug-in also exposes attributes to the library. Primarily, attributes used to identifying the plug-in such its [family support](api.pyblish.com/pages/Plugin.families.html) and processing methods.
 
 ```python
 import pyblish.api as pyblish
@@ -85,12 +85,10 @@ class ExtractInstance(pyblish.InstancePlugin):
             # ...
 ```
 
-It does this via the [data member][data]. Each stage, selection, validation, extraction and conform, may pass data from one to the next.
+It does this via the [data member](http://api.pyblish.com/pages/AbstractEntity.data.html). Each stage, selection, validation, extraction and conform, may pass data from one to the next.
 
 Other data includes switches within the instance itself. For example, a `review` family may include options for output resolution in pixels, or format such as whether to write a Quicktime file or a plain `png` sequence.
 
 ```python
 instance.data["output"] = "png"
 ```
-
-[data]: http://api.pyblish.com/#pyblish.plugin.AbstractEntity.data
