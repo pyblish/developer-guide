@@ -81,7 +81,7 @@ class ExtractInstance(pyblish.InstancePlugin):
     order = pyblish.ExtractorOrder
 
     def process(self, instance):
-        if instance.has_data("message"):
+        if "message" in instance.data:
             # ...
 ```
 
