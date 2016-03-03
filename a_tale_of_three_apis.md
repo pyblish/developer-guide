@@ -37,7 +37,7 @@ This is the interface you gain access to from within your plug-in during develop
 
 ![image](https://cloud.githubusercontent.com/assets/2152766/7368408/75473d10-ed9f-11e4-8d41-230776dd7587.png)
 
-Each plug-in also exposes attributes to the library. Primarily, attributes used to identifying the plug-in such its [family support](api.pyblish.com/pages/Plugin.families.html) and processing methods.
+Each plug-in also exposes attributes to the library. Primarily, attributes used to identifying the plug-in such its [family support](http://api.pyblish.com/pages/Plugin.families.html) and processing methods.
 
 ```python
 import pyblish.api as pyblish
