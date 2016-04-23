@@ -11,6 +11,7 @@
    * [Communicating with the UI](communicating_with_the_ui.md)
    * [Communicating with the host](communicating_with_the_host.md)
    * [Developing with IPC](developing_with_ipc.md)
+   * QML and Python Interoperability
 * [Examples](examples.md)
    * [Writing Code](writing_code.md)
        * [Setting up on Windows](setting_up.md)
