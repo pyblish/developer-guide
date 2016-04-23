@@ -131,7 +131,6 @@ QtCore.QTimer.singleShot(3000, lambda: model.setData(
     model.createIndex(1, 0),  # 1th item, 0th column
     "New pLabel!",
     schema.index("pyLabel"),
-
 ))
 
 app.exec_()
