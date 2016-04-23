@@ -8,15 +8,12 @@ The primary mechanism in which Python and QML communicates is via the *model*.
 
 ### Model Introduction
 
-Qt is a Model/View oriented framework. That means that between logic and graphics, there is an intermediate object that "delegate" requests from one to the other. This object is called a model.
+Between logic and graphics, there is an intermediate object that "delegate" requests from one to the other. This object is called a model.
 
 **app.qml**
 
 ```json
-import QtQuick 2.3
-import QtQuick.Controls 1.3
-import QtQuick.Controls.Styles 1.3
-
+import QtQuick 2.0
 
 Rectangle {
     width: 300
