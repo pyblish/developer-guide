@@ -19,7 +19,7 @@
        * [Creating a pull-request](creating_a_pull-request.md)
    * [Writing a UI](writing_a_ui.md)
    * [Pyblish in 100 lines](pyblish_in_100_lines.md)
-   * Developing with Python and QML
+   * [Developing with Python and QML](developing_with_python_and_qml.md)
 * [Coding Standards](coding_standards.md)
 * [Suggestions for Improvements](suggestions_for_improvements.md)
 * [To be added](to_be_added.md)
