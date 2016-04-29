@@ -5,6 +5,7 @@ The primary mechanism in which Python and QML communicates is via the *model*.
 **References**
 
 - [Models and Views in Qt Quick](https://doc.qt.io/qt-5/qtquick-modelviewsdata-modelview.html)
+- [Pyblish QML model specification](https://github.com/pyblish/pyblish-qml/issues/81)
 
 <br>
 <br>
