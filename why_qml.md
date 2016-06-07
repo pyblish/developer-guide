@@ -33,7 +33,7 @@ For hack-and-slash software, written in the heat of production, the provided int
 
 **See also**
 
-- [Original issue on GitHub](https://github.com/pyblish/pyblish/issues/48)
+- [Original issue on GitHub](https://github.com/pyblish/pyblish-base/issues/48)
 
 <div class="modified-date">{{ file.mtime }}</div>
 
